@@ -23,14 +23,28 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Keyword</label>
-              <input v-model="job.keyword" type="keyword" class="form-control" id="keyword" required/>
+              <input
+                v-model="job.keyword"
+                type="keyword"
+                class="form-control"
+                id="keyword"
+                required
+              />
             </div>
             <div class="mb-3">
               <label class="form-label">Page</label>
-              <input v-model="job.page" type="number" class="form-control" min="1" required/>
+              <input
+                v-model="job.page"
+                type="number"
+                class="form-control"
+                min="1"
+                required
+              />
             </div>
             <div id="button">
-              <button id="search" v-on:click="addJob()" class="btn btn-primary">Search</button>
+              <button id="search" v-on:click="addJob()" class="btn btn-primary">
+                Search
+              </button>
               <button id="count" class="btn btn-info">Keyword Count</button>
             </div>
           </form>
@@ -41,29 +55,32 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: 'FormJob',
+  name: "FormJob",
   data() {
     return {
       job: {
-        serveice: '',
-        keyword: '',
-        page: ''
+        serveice: "",
+        keyword: "",
+        page: ""
       }
     };
   },
   methods: {
     addJob() {
-      axios.post('http://localhost:3000/post', this.jobs).then(() => {
-        this.$router.push('/job');
-        this.job = {
-          keyword: '',
-          page: ''
-        }
-      }).catch((error) => {
-        console.error(error);
-      })
+      axios
+        .post("http://localhost:3000/post", this.jobs)
+        .then(() => {
+          this.$router.push("/job");
+          this.job = {
+            keyword: "",
+            page: ""
+          };
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   }
 };
