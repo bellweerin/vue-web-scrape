@@ -8,6 +8,10 @@ export default new Router({
     {
       path: '/',
       name: 'job'
+    },
+    {
+      path: '/status',
+      name: 'status'
     }
   ]
 })

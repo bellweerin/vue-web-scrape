@@ -46,11 +46,11 @@
               <button id="search" v-on:click="addJob()" class="btn btn-primary">
                 Search
               </button>
-              <button id="count" class="btn btn-info">Keyword Count</button>
             </div>
           </form>
         </div>
       </div>
+        <button id="count" v-on:click="keywordCount()" class="btn btn-info">Keyword Count</button>
     </div>
   </div>
 </template>
@@ -79,7 +79,13 @@ export default {
       }).catch((error) => {
         console.error(error);
       })
+    },
+
+    keywordCount(){
+      this.$router.push({name:'status'});
     }
+
+
   }
 };
 </script>
