@@ -1,12 +1,6 @@
 <template>
   <div id="app">
-    <!-- <router-view /> -->
-    <form-job></form-job>
-    <br>
-    <br>
-    <table-job></table-job>
-
-    <!-- <hello/> -->
+    <router-view></router-view>
    
   </div>
 </template>

@@ -32,11 +32,13 @@
             </div>
             <div id="button">
               <button id="search" v-on:click="addJob()" class="btn btn-primary">Search</button>
-              <button id="count" class="btn btn-info">Keyword Count</button>
             </div>
           </form>
+
         </div>
+         
       </div>
+      <router-link :to="'keyword'"><button id="count" class="btn btn-info">Keyword Count</button></router-link>
     </div>
   </div>
 </template>
@@ -57,7 +59,7 @@ export default {
   methods: {
     addJob() {
       axios.post('http://localhost:3000/post', this.job).then(() => {
-        this.$router.push('/job');
+        this.$router.push('/');
         this.job = {
           keyword: '',
           page: ''
