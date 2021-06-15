@@ -12,9 +12,10 @@
                 v-model="job.service"
                 class="form-select"
                 aria-label="Default select example"
+                required
               >
                 <!-- <option selected>select service</option> -->
-                <option value="1">Shopee</option>
+                <option selected value="1">Shopee</option>
                 <option value="2">Amazon</option>
                 <option value="3">Pantip</option>
                 <option value="4">JD</option>
@@ -47,7 +48,7 @@ export default {
   data() {
     return {
       job: {
-        serveice: '',
+        service: '',
         keyword: '',
         page: ''
       }
@@ -55,7 +56,7 @@ export default {
   },
   methods: {
     addJob() {
-      axios.post('http://localhost:3000/post', this.jobs).then(() => {
+      axios.post('http://localhost:3000/post', this.job).then(() => {
         this.$router.push('/job');
         this.job = {
           keyword: '',
