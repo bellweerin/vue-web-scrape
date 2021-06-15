@@ -4,14 +4,17 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'job'
+      name: 'index',
+      component : () => import('../pages/Index.vue')
     },
     {
-      path: '/status',
-      name: 'status'
+      path: '/keyword',
+      name: 'keyword',
+      component : () => import('../pages/Keyword.vue')
     }
   ]
 })
