@@ -1,6 +1,6 @@
 <template>
-  <div id="table-job">
-    <div class="container">
+    <div id="table-keyword">
+        <div class="container">
       <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
@@ -13,42 +13,35 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="job in Jobs" :key="job.id">
+          <!-- <tr v-for="job in Jobs" :key="job.id">
             <td>{{job.keyword}}</td>
             <td>{{job.service}}</td>
             <td>{{job.page}}</td>
             <td>{{job.status}}</td>
             <td>{{job.start_time}}</td>
             <td>{{job.end_time}}</td>
-          </tr>
+          </tr> -->
          </tbody>
       </table>
     </div>
-  </div>
+
+    </div>
+    
 </template>
 
 <script>
-import axios from "axios"
 export default {
-  name: "TableJob",
-  mounted() {
-    axios.get("http://localhost:3000/").then((response) => {
-      console.log(response.data);
-      this.Jobs = response.data;
-    })
-  },
-  data() {
-    return {
-      Jobs: {}
+    name: "TableKeyword",
+    mounted(){
+        
+    },
+    methods: {
+        
     }
-  }
-};
+
+}
 </script>
 
 <style scoped>
-#job-table {
-    width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-}
+
 </style>

@@ -9,12 +9,11 @@
 
 <script>
 
-import FormJob from '@/components/FormJob'
-import TableJob from '@/components/TableJob'
-// import HelloWorld from '@/componens/HelloWorld'
+import FormJob from "@/components/FormJob"
+import TableJob from "@/components/TableJob"
 
 export default {
-  name: 'Index',
+  name: "Index",
   components: {
     FormJob,
     TableJob
@@ -22,6 +21,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

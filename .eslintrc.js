@@ -37,9 +37,12 @@ module.exports = {
     'semi': 0,
     "space-before-function-paren": ["error", "never"],
     'space-after-keywords': 'never',
+    "eqeqeq": "off",
+    "curly": "error",
+    'quotes': ["error", "double"]
     
 
     // 'semi': ["error", "never"]
-    // 'quotes': ["error", "double"]
+    // 
   }
 }

@@ -14,7 +14,6 @@
                 aria-label="Default select example"
                 required
               >
-                <!-- <option selected>select service</option> -->
                 <option selected value="1">Shopee</option>
                 <option value="2">Amazon</option>
                 <option value="3">Pantip</option>
@@ -24,51 +23,70 @@
             </div>
             <div class="mb-3">
               <label class="form-label">Keyword</label>
-              <input v-model="job.keyword" type="keyword" class="form-control" id="keyword" required/>
+              <input
+                v-model="job.keyword"
+                type="keyword"
+                class="form-control"
+                id="keyword"
+                required
+              />
             </div>
             <div class="mb-3">
               <label class="form-label">Page</label>
-              <input v-model="job.page" type="number" class="form-control" min="1" required/>
+              <input
+                v-model="job.page"
+                type="number"
+                class="form-control"
+                min="1"
+                required
+              />
             </div>
             <div id="button">
-              <button id="search" v-on:click="addJob()" class="btn btn-primary">Search</button>
+              <button id="search" v-on:click="addJob()" class="btn btn-primary">
+                Search
+              </button>
             </div>
           </form>
-
         </div>
-         
       </div>
-      <router-link :to="'keyword'"><button id="count" class="btn btn-info">Keyword Count</button></router-link>
+      <router-link :to="'keyword'"
+        ><button id="count" class="btn btn-info">
+          Keyword Count
+        </button></router-link
+      >
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: 'FormJob',
+  name: "FormJob",
   data() {
     return {
       job: {
-        service: '',
-        keyword: '',
-        page: ''
-      }
+        service: "",
+        keyword: "",
+        page: "",
+      },
     };
   },
   methods: {
     addJob() {
-      axios.post('http://localhost:3000/post', this.job).then(() => {
-        this.$router.push('/');
-        this.job = {
-          keyword: '',
-          page: ''
-        }
-      }).catch((error) => {
-        console.error(error);
-      })
-    }
-  }
+      axios
+        .post("http://localhost:3000/post", this.job)
+        .then(() => {
+          this.$router.push("/");
+          this.job = {
+            keyword: "",
+            page: "",
+          };
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    },
+  },
 };
 </script>
 

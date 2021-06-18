@@ -9,12 +9,12 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component : () => import('../pages/Index.vue')
+      component: () => import('../pages/Index.vue')
     },
     {
       path: '/keyword',
       name: 'keyword',
-      component : () => import('../pages/Keyword.vue')
+      component: () => import('../pages/Keyword.vue')
     }
   ]
 })
