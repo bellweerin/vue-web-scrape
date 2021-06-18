@@ -15,7 +15,7 @@ Vue.use(BootstrapVueIcons)
 Vue.config.silent = true
 Vue.config.productionTip = false
 
-// Vue.use(BootstrapVue)
+
 Vue.use(IconsPlugin)
 /* eslint-disable no-new */
 /* eslint-disable */
