@@ -53,8 +53,6 @@ export default {
     axios.get("http://localhost:3000/status").then((response) => {
       this.Datas = response.data.lodash;
       this.Keyword = response.data.keywords;
-
-      //   console
     });
   },
   data() {
