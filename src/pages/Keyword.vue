@@ -1,57 +1,70 @@
 <template>
   <div id="keyword">
     <div class="container">
-      <table class="table" id="job-table">
-        <thead>
-          <tr class="table-warning">
-            <!-- <th scope="col">Keyword</th> -->
-            <th scope="col">Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr v-for="keyword in Keywords.shopee" :key="keyword">
-            <!-- <div v-for="data in keyword" :key="data.id"> -->
-            <td>{{keyword.count}}</td>
-            <!-- </div> -->
-
-            <!-- <div v-for=""></div> -->
-            <!-- <td>{{keyword.keyword}}</td> -->
-            <!-- <td>{{keyword.count}}</td> -->
-            <!-- <td>{{job.page}}</td>
-            <td>{{job.status}}</td>
-            <td>{{job.start_time}}</td>
-            <td>{{job.end_time}}</td> -->
-          </tr>
-        </tbody>
-      </table>
-
-      <div v-for="keyword in Keywords.shopee" :key="keyword">
-        <h5>{{keyword.count}}</h5>
+      <div class="row col-6 ">
+      <h1>Keywords Page</h1>
+      <div v-for="(Data,key) in Datas" :key="Data">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{key}}</h5>
+          
+          <p class="card-text">
+            <ul class="list-inline">
+              <div v-for="data in Data" :key="data">
+                <li class="list-inline-item">{{data.keyword}} : {{data.count}}</li>
+          
+          </div>
+          </ul>
+          </p>
       </div>
+      </div>
+      </div>
+      </div>
+      <b-button v-b-modal.modal-1 v-on:click="chartComponent(Data,key)" class="card-link" variant="primary">Chart</b-button>
+       <b-modal id="modal-1" size="xl" title="chart">
+            <AllChart  :chartData=chartData></AllChart>
+        </b-modal>
+
+
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import AllChart from "../components/AllChart.vue";
+import dataChart from "../data-chart";
+
 export default {
+  components: {
+    AllChart,
+  },
   name: "Keyword",
 
   mounted() {
     axios.get("http://localhost:3000/status").then((response) => {
-      console.log(response.data);
-      this.Keywords = response.data;
-      console.log(Keywords);
-    //   console
+      this.Datas = response.data.lodash;
+      this.Keyword = response.data.keywords;
+
+      //   console
     });
   },
   data() {
     return {
-      Keywords: {}
+      Datas: {},
+      chartData: {},
+      Keyword: [],
+      click: 0,
     };
+  },
+  methods: {
+    chartComponent() {
+      this.chartData = dataChart.set(this.Keyword,this.Datas);
+      this.click = 1;
+    },
   },
 };
 </script>
 
-<style>
+<style scoped>
 </style>
