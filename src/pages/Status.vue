@@ -2,8 +2,24 @@
   <div id="status">
     <div class="container">
       <div class="row col-6 ">
-      <h1>Keywords Page</h1>
-      <div v-for="(Data,key) in Datas" :key="Data">
+      <h1>Status Page</h1>
+
+      <table class="table table-dark">
+  <thead>
+    <tr>
+      <!-- <th scope="col">num</th> -->
+      <th scope="col">Words</th>
+      <th scope="col">detail</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="key in Keyword" :key="key.id">
+      <td>{{key.word}}</td>
+      <td><router-link :to="{name:'keyword-list',params:{word:key.word,id:key.id}}" type="button" class="btn btn-info">Info</router-link></td>
+    </tr>
+  </tbody>
+</table>
+      <!-- <d iv v-for="(Data,key) in Keywords" :key="Data">
       <div class="card" style="width: 18rem">
         <div class="card-body">
           <h5 class="card-title">{{key}}</h5>
@@ -18,7 +34,7 @@
           </p>
       </div>
       </div>
-      </div>
+      </d> -->
       </div>
       <b-button v-b-modal.modal-1 v-on:click="chartComponent(Data,key)" class="card-link" variant="primary">Chart</b-button>
        <b-modal id="modal-1" size="xl" title="chart">

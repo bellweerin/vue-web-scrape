@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/status',
       name: 'status',
-      component: () => import('../pages/Status.vue')
+      component: () => import('../pages/Status.vue'),
     },
     {
       path: '/keyword',
@@ -25,6 +25,11 @@ export default new Router({
       path: '/facebook-page',
       name: 'facebook-page',
       component: () => import('../pages/FacebookPage.vue')
-    }
+    },
+    {
+      path: '/keyword-list',
+      name: 'keyword-list',
+      component: () => import('../pages/KeywordList.vue')
+    },
   ]
 })
