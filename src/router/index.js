@@ -31,5 +31,10 @@ export default new Router({
       name: 'keyword-list',
       component: () => import('../pages/KeywordList.vue')
     },
+    {
+      path: '/keyword-fillter',
+      name: 'keyword-fillter',
+      component: () => import('../pages/TableKeywordFillter.vue')
+    },
   ]
 })
