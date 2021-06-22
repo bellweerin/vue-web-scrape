@@ -108,18 +108,15 @@ export default {
   },
   methods: {
     addJob() {
-      axios
-        .post("http://localhost:3000/post", this.job)
-        .then(() => {
-          this.$router.push("/");
-          this.job = {
-            keyword: "",
-            page: "",
-          };
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      axios.post("http://localhost:3000/post", this.job).then(() => {
+        this.$router.push("/");
+        this.job = {
+          keyword: "",
+          page: "",
+        };
+      }).catch((error) => {
+        console.error(error);
+      });
     },
     selected() {
       let service = document.getElementById("service").value;
