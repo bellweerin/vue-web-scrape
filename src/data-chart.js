@@ -2,25 +2,28 @@
 export default {
   set: function(allkeyword,Datas) {
     const datas = Datas
+    console.log("eeeeee",datas)
     this.keywordArray = [];
     const keywords = allkeyword;
 
     //turn object to arrays keywords
-    this.allKeywords = keywords.map(function(value, index) {
-      return value.word;
+    this.allKeywords = keywords.map(function(value) {
+      return value.thai_word;
     });
 
 
-
+  //turn to {Service:[array]}
     const result1 = Object.entries(datas)
-    console.log("result1",result1) 
-    const result2 = result1.map(function(value,index){
+
+    //turn to {[word:count]}
+    const result2 = result1.map(function(value){
         return value[1].map(function(v){
-            return {[v.keyword]:v.count}
+            return {[v.thai_word]:v.count}
         })
-    })
-    
-    console.log("result2",result2);
+    })   
+
+
+    //find seem word in allkeywords
     for(let i=0 ; i < result2.length ; i++){
         const value_outer = result2[i];
 
@@ -28,12 +31,12 @@ export default {
         this.array_inner = new Array(this.allKeywords.length).fill(0);
         for(let j=0; j < value_outer.length ;j++ ){
             const  value_inner = value_outer[j];
+            console.log(value_inner)
 
             const find = this.allKeywords.findIndex(function(v){
                 return v === Object.keys(value_inner).toString();
             })
             this.array_inner[find] = parseInt(Object.values(value_inner));
-            console.log(this.array_inner)
         }
 
     this.keywordArray.push(this.array_inner)
@@ -41,6 +44,9 @@ export default {
     }
     console.log("done",this.keywordArray)
 
+    this.allKeywords = keywords.map(function(value) {
+      return value.thai_word+"/"+value.eng_word;
+    });
     //send to func
     this.chartData = createOneChart(
       this.allKeywords,

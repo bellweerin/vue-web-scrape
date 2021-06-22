@@ -14,8 +14,8 @@
   </thead>
   <tbody>
     <tr v-for="key in Keyword" :key="key.id">
-      <td>{{key.word}}</td>
-      <td><router-link :to="{name:'keyword-list',params:{word:key.word,id:key.id}}" type="button" class="btn btn-info">Info</router-link></td>
+      <td>{{key.thai_word}}/{{key.eng_word}}</td>
+      <td><router-link :to="{name:'keyword-list',params:{thai_word:key.thai_word,eng_word:key.eng_word,id:key.id}}" type="button" class="btn btn-info">Info</router-link></td>
     </tr>
   </tbody>
 </table>

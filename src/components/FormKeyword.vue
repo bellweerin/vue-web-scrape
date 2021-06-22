@@ -5,13 +5,13 @@
       <form>
         <div class="form-row">
           <div class="col-6">
-            <input type="text" class="form-control" placeholder="Thai-Word" />
+            <input type="text" v-model="Keyword.thai_word" class="form-control" placeholder="Thai-Word" required />
           </div>
           <div class="col-6">
-            <input type="text" class="form-control" placeholder="Eng-Word" />
+            <input type="text" v-model="Keyword.eng_word" class="form-control" placeholder="Eng-Word" required/>
           </div>
         </div>
-        <button v-on="addKeyword()" type="submit" class="btn btn-primary">Create</button>
+        <button v-on:click="addKeyword()" type="submit" class="btn btn-primary">Create</button>
         <button type="reset" value="Reset" class="btn btn-warning">
           Clear
         </button>
@@ -28,13 +28,15 @@ export default {
     data() {
         return { 
             Keyword: {
-                word : ''
+                thai_word : '',
+                eng_word : ''
+
             }
         }
     },
     methods: {
         addKeyword(){
-            axios.post()
+            axios.post('http://localhost:3000/createkeyword',this.Keyword)
         }
     }
 

@@ -37,9 +37,9 @@
                 <option
                   v-for="keyword in keywords"
                   :key="keyword"
-                  :value="keyword.id"
+                  :value="keyword.thai_word"
                 >
-                  {{ keyword.word }}
+                  {{ keyword.thai_word+"/"+keyword.eng_word }}
                 </option>
               </select>
             </div>

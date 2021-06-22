@@ -11,13 +11,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="keyword in Keywords" :key="keyword">
-          <th scope="row">1</th>
-          <td>{{keyword.id}}</td>
-          <td>{{keyword.word}}</td>
+        <tr  v-for="keyword in Keywords" :key="keyword">
+          <th scope="row">{{(Keywords.indexOf(keyword))+1}}</th>
+          <td> {{keyword.id}}</td>
+          <td>{{keyword.thai_word}}/{{keyword.eng_word}}</td>
           <td>
-            <button class="btn btn-danger">Delete</button>
-            <!-- <button class="btn btn-warning">edit</button> -->
+            <!-- <input :v-bind="keywords.id"> -->
+            <button v-on:click="_delete(keyword.id)" class="btn btn-danger">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -31,7 +31,9 @@ export default {
   name: "TableKeyword",
   data(){
     return {
-      Keywords: {}
+      Keywords: {
+        id:""
+      }
     }
   },
   mounted() {
@@ -39,7 +41,12 @@ export default {
       this.Keywords = response.data.keywords;
     })
   },
-  methods: {},
+  methods: {
+    _delete(id){
+      axios.post("http://localhost:3000/deletekeyword",{"id": id})
+      location.reload();
+    }
+  },
 };
 </script>
 
