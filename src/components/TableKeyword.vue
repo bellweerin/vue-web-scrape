@@ -1,5 +1,5 @@
 <template>
-  <div id="table-keyword">
+  <div id="table-keyword" class="container ">
     <h1>All Keyword Table</h1>
     <table class="table">
       <thead>
