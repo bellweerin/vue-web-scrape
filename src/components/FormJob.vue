@@ -135,6 +135,8 @@ export default {
       if (service === "1" || service === "2" || service === "4") {
         post_amount.style.display = "none";
         page_amount.style.display = "block";
+        keyword.style.display = "block";
+        facebook_page.style.display = "none";
       } else {
         post_amount.style.display = "block";
         page_amount.style.display = "none";
@@ -144,6 +146,7 @@ export default {
         }
         else{
           facebook_page.style.display = "none";
+          keyword.style.display = "block";
         }
       }
     },
