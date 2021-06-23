@@ -37,7 +37,7 @@
                 <option
                   v-for="keyword in keywords"
                   :key="keyword"
-                  :value="keyword.thai_word"
+                  :value=[keyword.thai_word,keyword.eng_word]
                 >
                   {{ keyword.thai_word+"/"+keyword.eng_word }}
                 </option>
@@ -46,7 +46,7 @@
             <!-- Page Name -->
             <div id="facebook-page" class="mb-3">
               <label class="form-label">Page Name</label>
-              <select class="form-select" required>
+              <select class="form-select" v-model="job.keyword" required>
                 <option v-for="page in facebook_pages" :key="page">{{page.name}}</option>
               </select>
             </div>
@@ -81,6 +81,10 @@
           </form>
         </div>
       </div>
+
+      <div class="spinner-border text-warning" role="status">
+      <span class="sr-only"></span>
+</div>
     </div>
   </div>
 </template>
@@ -98,7 +102,7 @@ export default {
       },
       keywords: "",
       services: "",
-      facebook_pages: ""
+      facebook_pages: "",
     };
   },
   mounted() {
@@ -111,6 +115,7 @@ export default {
   },
   methods: {
     addJob() {
+      console.log("job",this.job.keyword)
       axios.post("http://localhost:3000/post", this.job).then(() => {
         this.$router.push("/");
         // this.job = {
