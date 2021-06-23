@@ -1,6 +1,5 @@
 <template>
   <div id="table-keyword-service">
-    <p>{{this.service}}</p>
     <div v-if="this.service==='shopee'" >
       <ShopeeTable :Data="this.Data"></ShopeeTable>
     </div>

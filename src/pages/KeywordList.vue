@@ -3,7 +3,7 @@
     <h1>keywordlist page</h1>
     <h2>{{id}}</h2>
     <h3>{{thai_word}} / {{eng_word}}</h3>
-    <h4>{{Object.entries(Keyword_fillter)}}</h4>
+    <!-- <h4>{{Object.entries(Keyword_fillter)}}</h4> -->
     
     <table class="table table-dark">
   <thead>
