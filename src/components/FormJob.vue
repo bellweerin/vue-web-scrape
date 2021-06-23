@@ -26,7 +26,7 @@
               </select>
             </div>
             <!-- Keyword -->
-            <div class="mb-3">
+            <div id="keyword" class="mb-3">
               <label class="form-label">Keyword</label>
               <select
                 id="select-service"
@@ -47,7 +47,7 @@
             <div id="facebook-page" class="mb-3">
               <label class="form-label">Page Name</label>
               <select class="form-select" required>
-                <option></option>
+                <option v-for="page in facebook_pages" :key="page">{{page.name}}</option>
               </select>
             </div>
             <!-- Page Amount -->
@@ -98,22 +98,25 @@ export default {
       },
       keywords: "",
       services: "",
+      facebook_pages: ""
     };
   },
   mounted() {
     axios.get("http://localhost:3000/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
+      this.facebook_pages = response.data.facebook_pages;
+
     });
   },
   methods: {
     addJob() {
       axios.post("http://localhost:3000/post", this.job).then(() => {
         this.$router.push("/");
-        this.job = {
-          keyword: "",
-          page: "",
-        };
+        // this.job = {
+        //   keyword: "",
+        //   page: "",
+        // };
       }).catch((error) => {
         console.error(error);
       });
@@ -121,6 +124,7 @@ export default {
     selected() {
       let service = document.getElementById("service").value;
       let facebook_page = document.getElementById("facebook-page");
+      let keyword = document.getElementById("keyword");
       let post_amount = document.getElementById("post-amount");
       let page_amount = document.getElementById("page-amount");
       if (service === "1" || service === "2" || service === "4") {
@@ -131,6 +135,7 @@ export default {
         page_amount.style.display = "none";
         if (service == "5") {
           facebook_page.style.display = "block";
+          keyword.style.display = "none";
         }
         else{
           facebook_page.style.display = "none";
