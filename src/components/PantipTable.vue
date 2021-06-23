@@ -19,7 +19,7 @@
   <tbody>
     <tr v-for="(data,index) in Data" :key="data">
       <td>{{index+1}}</td>
-      <td>{{data.product_id}}</td>
+      <td>{{data.post_id}}</td>
       <td>{{data.title}}</td>
       <td>{{data.story}}</td>
       <td><a :href="data.post_link" target="_blank">link</a></td>

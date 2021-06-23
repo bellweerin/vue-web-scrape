@@ -1,6 +1,6 @@
 <template>
-  <div id="table-keyword-service">
-    <p>{{this.service}}</p>
+  <div id="table-keyword-service" class="container">
+    <h1>{{this.service}}</h1>
     <div v-if="this.service==='shopee'" >
       <ShopeeTable :Data="this.Data"></ShopeeTable>
     </div>
@@ -28,6 +28,7 @@ import AmazonTable from "../components/AmazonTable.vue"
 import PantipTable from "../components/PantipTable.vue"
 import JdTable from "../components/JdTable.vue"
 import FacebookTable from "../components/FacebookTable.vue"
+import axios from "axios";
 
 export default {
   name: "TableKeywordFillter",
