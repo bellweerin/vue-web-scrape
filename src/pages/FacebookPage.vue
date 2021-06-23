@@ -11,9 +11,6 @@
 <script>
 import FormFacebookPage from "@/components/FormFacebookPage";
 import TableFacebookPage from "@/components/TableFacebookPage";
-import axios from 'axios';
-
-
 
 export default {
   name : "FacebookPage",
