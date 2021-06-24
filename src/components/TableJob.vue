@@ -4,9 +4,9 @@
       <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
-            <th scope="col">Keyword</th>
+            <th scope="col">Page name/Keyword</th>
             <th scope="col">Service</th>
-            <th scope="col">Page</th>
+            <th scope="col">Posts amount/Pages amount</th>
             <th scope="col">Status</th>
             <th scope="col">Start</th>
             <th scope="col">End</th>
@@ -34,7 +34,7 @@ export default {
   mounted() {
     axios.get("http://localhost:3000/").then((response) => {
       console.log(response.data);
-      this.Jobs = response.data;
+      this.Jobs = response.data.results;
     })
   },
   data() {
@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 #job-table {
-    width: 50rem;
+    /* width: 50rem; */
     margin-left: auto;
     margin-right: auto;
 }

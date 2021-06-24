@@ -63,7 +63,7 @@
             </div>
             <!-- Post Amount -->
             <div id="post-amount" class="mb-3">
-              <label class="form-label">Post</label>
+              <label class="form-label" >Post</label>
               <input
                 v-model="job.page"
                 type="number"

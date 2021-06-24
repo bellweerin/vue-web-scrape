@@ -6,7 +6,7 @@
       <th scope="col">#</th>
       <th scope="col">product id</th>
       <th scope="col">name</th>
-      <th scope="col">link</th>
+
       <th scope="col">rank</th>
       <th scope="col">rating</th>
       <th scope="col">review</th>
@@ -16,9 +16,8 @@
   <tbody>
     <tr v-for="(data,index) in Data" :key="data">
       <td>{{index+1}}</td>
-      <td>{{data.product_id}}</td>
+      <td><a :href="data.url" target="_blank">{{data.product_id}}</a></td>
       <td>{{data.name}}</td>
-      <td><a :href="data.url" target="_blank">link</a></td>
       <td>{{data.rank}}</td>
       <td>{{data.rating}}</td>
       <td>{{data.review}}</td>

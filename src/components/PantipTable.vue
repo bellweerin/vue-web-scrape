@@ -7,7 +7,6 @@
       <th scope="col">post id</th>
       <th scope="col">title</th>
       <th scope="col">story</th>
-      <th scope="col">post link</th>
       <th scope="col">author</th>
       <th scope="col">date time</th>
       <th scope="col">meaning</th>
@@ -19,10 +18,9 @@
   <tbody>
     <tr v-for="(data,index) in Data" :key="data">
       <td>{{index+1}}</td>
-      <td>{{data.post_id}}</td>
+      <td><a :href="data.post_link" target="_blank">{{data.post_id}}</a></td>
       <td>{{data.title}}</td>
       <td>{{data.story}}</td>
-      <td><a :href="data.post_link" target="_blank">link</a></td>
       <td>{{data.author}}</td>
       <td>{{data.date_time}}</td>
       <td>{{data.meaning}}</td>
