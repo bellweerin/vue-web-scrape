@@ -45,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.Data)
+    console.log("aaaa",this.Data)
   },
   methods: {
   }

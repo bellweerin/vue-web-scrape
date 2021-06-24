@@ -1,6 +1,6 @@
 <template>
     <div id="facebook-table" class="container">
-        <table class="table table-dark">
+        <table class="table table-dark" data-toggle="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -16,7 +16,7 @@
       <td>{{data.post_id}}</td>
       <td>{{data.post_text}}</td>
       <td><a :href="data.post_url" target="_blank">link</a></td>
-      <td><img :src="data.img_src[0]" width="250" height="250"></td>
+      <td><img :src="data.image_h" width="250" height="250"></td>
     </tr>
   </tbody>
 </table>
@@ -34,6 +34,7 @@ export default {
   },
   mounted() {
     console.log("aaaaaaaaaaaaaa",this.Data)
+    console.log(this.Data)
   },
   methods: {
   }

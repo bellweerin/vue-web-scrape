@@ -1,8 +1,6 @@
 <template>
     <div id="shopee-table" class="container">
-        <table class="table table-dark" data-toggle="table"
-  data-height="460"
-  data-pagination="true">
+        <table class="table table-dark" data-toggle="table">
   <thead>
     <tr>
       <th scope="col">#</th>

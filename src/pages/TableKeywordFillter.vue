@@ -59,7 +59,7 @@ export default {
               }
         }).then((response) => {
             this.Data = response.data.data;
-            console.log(this.Data)
+            console.log("data",this.Data)
         })
     
 
