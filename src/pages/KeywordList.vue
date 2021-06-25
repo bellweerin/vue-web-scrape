@@ -17,7 +17,7 @@
       <td>{{index+1}}</td>
       <td>{{((data)[1])[0].service}}</td>
       <td>{{((data)[1])[0].count}}</td>
-      <td><router-link :to="{name:'keyword-fillter',params:{service:((data)[1])[0].service,id:id}}" type="button" class="btn btn-primary">table</router-link>
+      <td><router-link :to="{name:'keyword-fillter',params:{service:((data)[1])[0].service,id:id ,service_id:index+1}}" type="button" class="btn btn-primary">table</router-link>
     </td>
     
     </tr>

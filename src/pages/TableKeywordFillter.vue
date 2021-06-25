@@ -44,18 +44,21 @@ export default {
     return {
       service : this.service,
       id : this.id,
+      service_id:this.service_id,
       Data:{}
     };
   },
   created() {
-      this.service = this.$route.params.service,
+      this.service = this.$route.params.service
       this.id = this.$route.params.id
+      this.service_id = this.$route.params.service_id
   },
   mounted() {
     axios.get("http://localhost:3000/getKeywordByService",{
               params:{
                   service:this.service,
-                  id:this.id
+                  id:this.id,
+                  service_id:this.service_id
               }
         }).then((response) => {
             this.Data = response.data.data;
@@ -64,25 +67,6 @@ export default {
     
 
   },
-  methods: {
-    createTable(){
-      var rows = this.Data
-      var html = '<table>';
-      html += '<tr>';
-      for( var j in rows[0] ) {
-        html += '<th>' + j + '</th>';
-      }
-      html += '</tr>';
-      for( var i = 0; i < rows.length; i++) {
-        html += '<tr>';
-        for( var j in rows[i] ) {
-          html += '<td>' + rows[i][j] + '</td>';
-        }
-        html += '</tr>';
-      }
-      html += '</table>';
-      document.getElementById('table-keyword-service').innerHTML = html;
-    }
-  }
+  methods: { }
 }
 </script>

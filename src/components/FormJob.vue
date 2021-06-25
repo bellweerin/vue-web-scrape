@@ -97,7 +97,7 @@ export default {
     return {
       job: {
         service: "",
-        keyword: "",
+        keyword: [],
         page: "",
       },
       keywords: "",
