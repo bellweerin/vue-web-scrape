@@ -37,9 +37,9 @@
                 <option
                   v-for="keyword in keywords"
                   :key="keyword"
-                  :value=[keyword.thai_word,keyword.eng_word]
+                  :value="[keyword.thai_word, keyword.eng_word]"
                 >
-                  {{ keyword.thai_word+"/"+keyword.eng_word }}
+                  {{ keyword.thai_word + "/" + keyword.eng_word }}
                 </option>
               </select>
             </div>
@@ -47,7 +47,9 @@
             <div id="facebook-page" class="mb-3">
               <label class="form-label">Page Name</label>
               <select class="form-select" v-model="job.keyword" required>
-                <option v-for="page in facebook_pages" :key="page">{{page.name}}</option>
+                <option v-for="page in facebook_pages" :key="page">
+                  {{ page.name }}
+                </option>
               </select>
             </div>
             <!-- Page Amount -->
@@ -63,7 +65,7 @@
             </div>
             <!-- Post Amount -->
             <div id="post-amount" class="mb-3">
-              <label class="form-label" >Post</label>
+              <label class="form-label">Post</label>
               <input
                 v-model="job.page"
                 type="number"
@@ -74,17 +76,47 @@
             </div>
 
             <div id="button">
-              <button id="search" v-on:click="addJob()" class="btn btn-primary">
+              <button
+                id="search"
+                
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#myModal"
+              >
                 Search
               </button>
+              <div class="spinner-border text-warning" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+              <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">
+                        &times;
+                      </button>
+                      <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the modal.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-default"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </form>
         </div>
       </div>
-
-      <div class="spinner-border text-warning" role="status">
-      <span class="sr-only"></span>
-</div>
     </div>
   </div>
 </template>
@@ -110,21 +142,21 @@ export default {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;
-
     });
   },
   methods: {
     addJob() {
-      console.log("job",this.job.keyword)
-      axios.post("http://localhost:3000/post", this.job).then(() => {
-        this.$router.push("/");
-        // this.job = {
-        //   keyword: "",
-        //   page: "",
-        // };
-      }).catch((error) => {
-        console.error(error);
-      });
+      // this.loading();
+      axios
+        .post("http://localhost:3000/post", this.job)
+        .then((response) => {
+          console.log(response);
+          // this.success();
+          location.reload();
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
     selected() {
       let service = document.getElementById("service").value;
@@ -143,12 +175,23 @@ export default {
         if (service == "5") {
           facebook_page.style.display = "block";
           keyword.style.display = "none";
-        }
-        else{
+        } else {
           facebook_page.style.display = "none";
           keyword.style.display = "block";
         }
       }
+    },
+    loading() {
+      let load = document.getElementById("load");
+      load.style.display = "block";
+    },
+    success() {
+      let load = document.getElementById("load");
+      load.style.display = "none";
+    },
+    hideBG() {
+      let form = document.getElementById("form-job");
+      form.style.visibility = "hidden";
     },
   },
 };
@@ -174,6 +217,10 @@ export default {
 }
 
 #post-amount {
+  display: none;
+}
+
+#load {
   display: none;
 }
 </style>
