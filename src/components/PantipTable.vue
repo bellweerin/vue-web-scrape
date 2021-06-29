@@ -20,7 +20,7 @@
       <td>{{index+1}}</td>
       <td><a :href="data.post_link" target="_blank">{{data.post_id}}</a></td>
       <td>{{data.title}}</td>
-      <td>{{data.story}}</td>
+      <td >{{data.story}}</td>
       <td>{{data.author}}</td>
       <td>{{data.date_time}}</td>
       <td>{{data.meaning}}</td>
