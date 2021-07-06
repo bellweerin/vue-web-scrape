@@ -38,10 +38,7 @@ export default {
     }
   },
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/keyword").then((response) => {
-      this.Keywords = response.data.keywords;
-      console.log(this.Keywords)
-    })
+    this.fetchData()
 
     // axios.get("http://localhost:3000/keyword").then((response) => {
     //   this.Keywords = response.data.keywords;
@@ -49,9 +46,16 @@ export default {
     // })
   },
   methods: {
+    fetchData(){
+      axios.get("https://aibedo.kisra.co.th/keyword?v="+ Math.random).then((response) => {
+      this.Keywords = response.data.keywords;
+      console.log(this.Keywords)
+      })
+    },
+
     _delete(id){
-      axios.post("https://aibedo.kisra.co.th/deletekeyword",{"id": id}).then(() => {
-      location.reload();  
+      axios.post("https://aibedo.kisra.co.th/deletekeyword?v="+Math.random,{"id": id}).then(() => {
+      this.fetchData() 
       })
       
     }

@@ -106,18 +106,21 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/").then((response) => {
+    this.fetchData()
+  },
+  methods: {
+    fetchData(){
+      axios.get("https://aibedo.kisra.co.th/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;
 
-    });
-  },
-  methods: {
+      });
+    },
     addJob() {
       console.log("job",this.job.keyword)
       axios.post("https://aibedo.kisra.co.th/post", this.job).then(() => {
-        location.reload();
+        this.fetchData()
         // this.$router.push("/");
         // this.job = {
         //   keyword: "",

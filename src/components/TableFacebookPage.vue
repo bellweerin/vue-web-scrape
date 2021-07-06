@@ -34,14 +34,20 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/facebook_page").then((response) => {
-      this.FacebookPages = response.data.facebook_pages;
-    });
+    this.fetchData()
   },
   methods: {
+    fetchData(){
+      axios.get("https://aibedo.kisra.co.th/facebook_page?v="+Math.random).then((response) => {
+      this.FacebookPages = response.data.facebook_pages;
+      console.log(this.FacebookPages)
+      });
+    },
     deletePage(page){
-      axios.post("https://aibedo.kisra.co.th/facebook_page/delete",page);
-      location.reload();
+      axios.post("https://aibedo.kisra.co.th/facebook_page/delete?v="+Math.random,page).then(() => {
+        this.fetchData()
+      })
+      
     }
   }
 };
