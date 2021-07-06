@@ -11,13 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr  v-for="keyword in Keywords" :key="keyword">
-          <th scope="row">{{(Keywords.indexOf(keyword))+1}}</th>
+        <tr  v-for="(keyword,index) in Keywords" :key="keyword">
+          <!-- <th scope="row">{{(Keywords.indexOf(keyword))+1}}</th> -->
+          <th>{{index+1}}</th>
           <td> {{keyword.id}}</td>
           <td>{{keyword.thai_word}}/{{keyword.eng_word}}</td>
           <td>
             <!-- <input :v-bind="keywords.id"> -->
-            <button v-on:click="_delete(keyword.id)" class="btn btn-danger">Delete</button>
+            <button v-on:click="_delete(keyword.id)" class="btn btn-danger" type="button">Delete</button>
           </td>
         </tr>
       </tbody>
@@ -37,14 +38,22 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://localhost:3000/keyword").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/keyword").then((response) => {
       this.Keywords = response.data.keywords;
+      console.log(this.Keywords)
     })
+
+    // axios.get("http://localhost:3000/keyword").then((response) => {
+    //   this.Keywords = response.data.keywords;
+    //   console.log(this.Keywords)
+    // })
   },
   methods: {
     _delete(id){
-      axios.post("http://localhost:3000/deletekeyword",{"id": id})
-      location.reload();
+      axios.post("https://aibedo.kisra.co.th/deletekeyword",{"id": id}).then(() => {
+      location.reload();  
+      })
+      
     }
   },
 };

@@ -32,7 +32,7 @@ import axios from "axios"
 export default {
   name: "TableJob",
   mounted() {
-    axios.get("http://localhost:3000/").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/").then((response) => {
       console.log(response.data);
       this.Jobs = response.data.results;
     })

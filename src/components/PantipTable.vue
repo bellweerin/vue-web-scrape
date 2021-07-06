@@ -1,6 +1,6 @@
 <template>
     <div id="pantip-table" class="container">
-        <table class="table table-dark">
+        <table class="table table-dark" id="top">
   <thead>
     <tr>
       <th scope="col">#</th>

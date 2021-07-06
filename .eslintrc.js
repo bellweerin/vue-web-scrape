@@ -32,14 +32,37 @@ module.exports = {
     'no-trailing-spaces': [2, { "skipBlankLines": true }],
     "eol-last": 0,
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
-    'comma-dangle': ["error", "never"],
+    'comma-dangle': "off",
     "no-extra-semi": "off",
     'semi': 0,
-    "space-before-function-paren": ["error", "never"],
-    'space-after-keywords': 'never',
+    "space-before-function-paren": "off",
+    'space-after-keywords': "off",
     "eqeqeq": "off",
-    "curly": "error",
-    'quotes': ["error", "double"]
+    "curly": "off",
+    'quotes': "off",
+    "no-unused-vars": "off",
+    "space-before-blocks": "off",
+    "key-spacing": "off",
+    'comma-spacing': "off",
+    'comma-padded-blocks': "off",
+    "no-new": "off",
+    "no-multiple-empty-lines": "off",
+    "padded-blocks": "off",
+    "spaced-comment": "off",
+    "space-infix-ops": "off",
+    "camelcase": "off",
+    "no-multi-spaces": "off",
+    "space-in-parens": "off",
+    "semi-spacing": "off",
+    "keyword-spacing": "off",
+    "no-trailing-spaces": "off",
+    "no-dupe-keys": "off",
+    "brace-style": "off",
+    "object-curly-even-spacing": "off",
+    "vue/no-dupe-keys": "off"
+
+    
+
     
 
     // 'semi': ["error", "never"]

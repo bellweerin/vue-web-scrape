@@ -15,7 +15,7 @@
             <td>{{page.id}}</td>
             <td>{{page.name}}</td>
             <td>
-              <button v-on:click="deletePage(page)" class="btn btn-danger">Delete</button>
+              <button v-on:click="deletePage(page)" class="btn btn-danger" type="button">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -34,13 +34,13 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:3000/facebook_page").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/facebook_page").then((response) => {
       this.FacebookPages = response.data.facebook_pages;
     });
   },
   methods: {
     deletePage(page){
-      axios.post("http://localhost:3000/facebook_page/delete",page);
+      axios.post("https://aibedo.kisra.co.th/facebook_page/delete",page);
       location.reload();
     }
   }

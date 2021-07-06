@@ -74,7 +74,7 @@
             </div>
 
             <div id="button">
-              <button id="search" v-on:click="addJob()" class="btn btn-primary">
+              <button id="search" v-on:click="addJob()" class="btn btn-primary" type="button">
                 Search
               </button>
             </div>
@@ -106,7 +106,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:3000/").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;
@@ -116,8 +116,9 @@ export default {
   methods: {
     addJob() {
       console.log("job",this.job.keyword)
-      axios.post("http://localhost:3000/post", this.job).then(() => {
-        this.$router.push("/");
+      axios.post("https://aibedo.kisra.co.th/post", this.job).then(() => {
+        location.reload();
+        // this.$router.push("/");
         // this.job = {
         //   keyword: "",
         //   page: "",
