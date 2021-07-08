@@ -17,6 +17,10 @@ export default {
   components: {
     FormJob,
     TableJob
+  },
+  data(){
+    return{
+    }
   }
 }
 </script>

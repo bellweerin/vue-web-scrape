@@ -54,7 +54,7 @@ export default {
       this.service_id = this.$route.params.service_id
   },
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/getKeywordByService",{
+    axios.get("http://localhost:3000/getKeywordByService",{
               params:{
                   service:this.service,
                   id:this.id,

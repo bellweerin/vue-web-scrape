@@ -36,5 +36,10 @@ export default new Router({
       name: 'keyword-fillter',
       component: () => import('../pages/TableKeywordFillter.vue')
     },
+    {
+      path: '/cron-job',
+      name: 'cron-job',
+      component: () => import('../pages/CronJob.vue')
+    },
   ]
 })

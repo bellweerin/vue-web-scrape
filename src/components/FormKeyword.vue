@@ -36,10 +36,10 @@ export default {
     },
     methods: {
         addKeyword(){
-            axios.post('https://aibedo.kisra.co.th/createkeyword?v='+Math.random,this.Keyword).then(() => {
-              location.reload()
-            })
-            // axios.post('http://localhost:3000/createkeyword',this.Keyword)
+            // axios.post('https://aibedo.kisra.co.th/createkeyword?v='+Math.random,this.Keyword).then(() => {
+            //   location.reload()
+            // })
+            axios.post('http://localhost:3000/createkeyword',this.Keyword)
         }
     }
 

@@ -1,6 +1,7 @@
 <template>
   <div id="table-job">
     <div class="container">
+      <b-progress :value="value" :max="max" show-progress animated></b-progress>
       <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
@@ -32,14 +33,16 @@ import axios from "axios"
 export default {
   name: "TableJob",
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/").then((response) => {
+    axios.get("http://localhost:3000/").then((response) => {
       console.log(response.data);
       this.Jobs = response.data.results;
     })
   },
   data() {
     return {
-      Jobs: {}
+      Jobs: {},
+      value:50,
+      max:100
     }
   }
 };
