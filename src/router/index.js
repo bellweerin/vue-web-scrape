@@ -36,5 +36,11 @@ export default new Router({
       name: 'keyword-fillter',
       component: () => import('../pages/TableKeywordFillter.vue')
     },
+    {
+      path: '/all-job',
+      name: 'all-job',
+      component: () => import('../pages/AllJob.vue')
+
+    }
   ]
 })

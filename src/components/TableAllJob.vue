@@ -1,7 +1,6 @@
 <template>
-  <div id="table-job">
-    <div class="container">
-      <table class="table" id="job-table">
+  <div id="table-all-job">
+       <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
             <th scope="col">Page name/Keyword</th>
@@ -19,44 +18,33 @@
             <td>{{job.service}}</td>
             <td>{{job.page}}</td>
             <td>{{job.status}}</td>
-            <td>{{job.created_time}}</td>
+            <td>{{job.created_time.replace("T"," ")}}</td>
             <td>{{job.start_time}}</td>
             <td>{{job.end_time}}</td>
           </tr>
          </tbody>
       </table>
-    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios"
 export default {
-  name: "TableJob",
+  name: "TableAllJob",
   mounted() {
     this.fetchData();
   },
   data() {
     return {
-      Jobs: {}
-    }
+      Jobs: {},
+    };
   },
   methods: {
-    fetchData(){
-      axios.get("http://localhost:3000/").then((response) => {
+    fetchData() {
+      axios.get("http://localhost:3000/job").then((response) => {
         console.log(response.data);
-        this.Jobs = response.data.results;
-      })
-    }
+        this.Jobs = response.data.jobs;
+      });
+    },
   },
-  
 };
 </script>
-
-<style scoped>
-#job-table {
-    /* width: 50rem; */
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
