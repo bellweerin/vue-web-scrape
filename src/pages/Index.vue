@@ -6,7 +6,6 @@
     <table-job></table-job>
   </div>
 </template>
-
 <script>
 
 import FormJob from "@/components/FormJob"

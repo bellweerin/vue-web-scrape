@@ -30,7 +30,6 @@ export default {
             Keyword: {
                 thai_word : '',
                 eng_word : ''
-
             }
         }
     },

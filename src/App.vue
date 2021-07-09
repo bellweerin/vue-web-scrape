@@ -6,8 +6,8 @@
           <b-nav-item href="#">BEDO</b-nav-item>
           <!-- <b-collapse id="nav-collapse" is-nav></b-collapse> -->
           <b-nav-item to="/">Home</b-nav-item>
-          
           <b-nav-item to="status">Status</b-nav-item> 
+          <b-nav-item to="all-job">All Job</b-nav-item>
           
 
           <b-nav-item-dropdown text="Manage" right>
@@ -26,7 +26,7 @@
 <script>
 import FormJob from "@/components/FormJob";
 import TableJob from "@/components/TableJob";
-// import HelloWorld from '@/componens/HelloWorld'
+
 
 export default {
   name: "App",
