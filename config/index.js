@@ -3,6 +3,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   dev: {
@@ -42,6 +43,7 @@ module.exports = {
 
     cssSourceMap: true
   },
+
 
   build: {
     // Template for index.html

@@ -71,9 +71,11 @@ export default {
     this.eng_word = this.$route.params.eng_word;
   },
   mounted() {
-    console.log(1);
-    axios
-      .get("http://localhost:3000/fillterkeyword", {
+    this.fetchData();
+  },
+  methods: {
+    fetchData(){
+      axios.get("http://localhost:3000/fillterkeyword", {
         params: {
           id: this.id,
         },
@@ -82,7 +84,7 @@ export default {
         this.Keyword_fillter = response.data.lodash;
         console.log(this.Keyword_fillter);
       });
+    }
   },
-  methods: {},
 };
 </script>

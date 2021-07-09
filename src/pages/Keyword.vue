@@ -10,6 +10,6 @@ import TableKeyword from "@/components/TableKeyword";
 import FormKeyword from "@/components/FormKeyword";
 export default {
   name: 'Keyword',
-  components: { TableKeyword ,  FormKeyword}
+  components: {TableKeyword,FormKeyword}
 }
 </script>

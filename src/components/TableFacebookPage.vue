@@ -34,14 +34,17 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:3000/facebook_page").then((response) => {
-      this.FacebookPages = response.data.facebook_pages;
-    });
+    this.fetchData();
   },
   methods: {
     deletePage(page){
       axios.post("http://localhost:3000/facebook_page/delete",page);
       location.reload();
+    },
+    fetchData(){
+      axios.get("http://localhost:3000/facebook_page").then((response) => {
+        this.FacebookPages = response.data.facebook_pages;
+      });
     }
   }
 };

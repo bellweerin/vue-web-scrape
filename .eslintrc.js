@@ -22,27 +22,49 @@ module.exports = {
   // add your custom rules here
   rules: {
     // allow async-await
-    'generator-star-spacing': 'off',
+    "generator-star-spacing": "off",
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-irregular-whitespace': 'off',
-    'indent': 'off',
-    'skipBlankLines': true,
-    'ignoreComments': true,
-    'no-trailing-spaces': [2, { "skipBlankLines": true }],
-    "eol-last": 0,
-    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
-    'comma-dangle': ["error", "never"],
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-irregular-whitespace": "off",
+    "no-trailing-spaces": "off",
+    "no-multiple-empty-lines": "off",
     "no-extra-semi": "off",
-    'semi': 0,
-    "space-before-function-paren": ["error", "never"],
-    'space-after-keywords': 'never',
-    "eqeqeq": "off",
-    "curly": "error",
-    'quotes': ["error", "double"]
-    
+    "no-multi-spaces": "off",
+    "no-undef": "off",
+    "no-dupe-keys": "off",
+    "no-new": "off",
 
-    // 'semi': ["error", "never"]
-    // 
+    "indent": "off",
+    "ignoreComments": true,
+
+    "eol-last": 0,
+    "eqeqeq": "off",
+
+    "comma-dangle": "off",
+    "comma-spacing": "off",
+    "camelcase": "off",
+    "curly": "error",
+    
+    "semi": "off",
+    "semi-spacing": "off",
+    "space-before-function-paren": ["error", "never"],
+    "space-after-keywords": 'never',
+    "spaced-comment": "off",
+    "space-before-blocks": "off",
+    "space-infix-ops": "off",
+    "space-in-parens": "off",
+    "skipBlankLines": true,
+
+    "quotes": "off",
+
+    "key-spacing": "off",
+    "keyword-spacing": "off",
+   
+    "padded-blocks": "off",
+   
+    "brace-style": "off",
+    "vue/no-dupe-keys": "off",
+    
+    
   }
 }

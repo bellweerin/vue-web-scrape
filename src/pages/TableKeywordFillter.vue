@@ -54,19 +54,23 @@ export default {
       this.service_id = this.$route.params.service_id
   },
   mounted() {
-    axios.get("http://localhost:3000/getKeywordByService",{
-              params:{
-                  service:this.service,
-                  id:this.id,
-                  service_id:this.service_id
-              }
-        }).then((response) => {
-            this.Data = response.data.data;
-            console.log("data",this.Data)
-        })
+    this.fetchData()
+  },
+  methods: { 
+    fetchData(){
+      axios.get("http://localhost:3000/getKeywordByService",{
+        params:{
+            service:this.service,
+            id:this.id,
+            service_id:this.service_id
+        }
+      }).then((response) => {
+          this.Data = response.data.data;
+          console.log("data",this.Data)
+      })
     
 
-  },
-  methods: { }
+    }
+  }
 }
 </script>

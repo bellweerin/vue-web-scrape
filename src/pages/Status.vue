@@ -59,17 +59,14 @@ import AllChart from "../components/AllChart.vue";
 import dataChart from "../data-chart";
 
 export default {
+  name: "Status",
   components: {
     AllChart,
   },
-  name: "Status",
   components: { AllChart },
   props: [""],
   mounted() {
-    axios.get("http://localhost:3000/status").then((response) => {
-      this.Datas = response.data.lodash;
-      this.Keyword = response.data.keywords;
-    });
+    this.fetchData();
   },
   data() {
     return {
@@ -84,6 +81,12 @@ export default {
       this.chartData = dataChart.set(this.Keyword, this.Datas);
       this.click = 1;
     },
+    fetchData(){
+      axios.get("http://localhost:3000/status").then((response) => {
+        this.Datas = response.data.lodash;
+        this.Keyword = response.data.keywords;
+      });
+    }
   },
 };
 </script>

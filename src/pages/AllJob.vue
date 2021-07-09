@@ -5,7 +5,7 @@
         <div class="card-body">
           <button v-on:click="create()" class="btn btn-info">create</button>
           <button v-on:click="run()" class="btn btn-secondary">run</button>
-          <button id="job-button" v-on:click="changeState()" class="btn btn-primary">start</button>
+          <button id="job-button" v-on:click="changeState()" class="btn btn-danger">stop</button>
           <!-- <button v-on:click="run()" class="btn btn-danger">start</button> -->
           
         </div>
@@ -21,7 +21,7 @@ import TableAllJob from '@/components/TableAllJob';
 
 export default {
   name: "App",
-  components: { TableAllJob},
+  components: {TableAllJob},
   mounted(){
     
   },

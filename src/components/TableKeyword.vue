@@ -37,14 +37,17 @@ export default {
     }
   },
   mounted() {
-    axios.get("http://localhost:3000/keyword").then((response) => {
-      this.Keywords = response.data.keywords;
-    })
+    this.fetchData();
   },
   methods: {
     _delete(id){
       axios.post("http://localhost:3000/deletekeyword",{"id": id})
       location.reload();
+    },
+    fetchData(){
+      axios.get("http://localhost:3000/keyword").then((response) => {
+        this.Keywords = response.data.keywords;
+      })
     }
   },
 };
