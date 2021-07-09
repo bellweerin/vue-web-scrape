@@ -1,5 +1,6 @@
 <template>
   <div id="table-all-job">
+    
        <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
@@ -28,23 +29,34 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: "TableAllJob",
   mounted() {
     this.fetchData();
+    this.updateStatus();
   },
   data() {
     return {
       Jobs: {},
+      
     };
   },
   methods: {
     fetchData() {
+      this.axiosData();  
+    },
+    updateStatus(){
+      setInterval(function () {
+        this.axiosData();      
+      }.bind(this),10000);
+    },
+    axiosData(){
       axios.get("http://localhost:3000/job").then((response) => {
         console.log(response.data);
-        this.Jobs = response.data.jobs;
-      });
-    },
+        this.Jobs = response.data.jobs;       
+      }); 
+    }
   },
 };
 </script>

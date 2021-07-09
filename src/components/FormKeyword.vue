@@ -11,7 +11,7 @@
             <input type="text" v-model="Keyword.eng_word" class="form-control" placeholder="Eng-Word" required/>
           </div>
         </div>
-        <button v-on:click="addKeyword()" type="submit" class="btn btn-primary">Create</button>
+        <button v-on:click="addKeyword()" type="button" class="btn btn-primary">Create</button>
         <button type="reset" value="Reset" class="btn btn-warning">
           Clear
         </button>
@@ -35,7 +35,11 @@ export default {
     },
     methods: {
         addKeyword(){
-            axios.post('http://localhost:3000/createkeyword',this.Keyword)
+          console.log("asdfasdfasdfs")
+            axios.post('https://aibedo.kisra.co.th/createkeyword',this.Keyword).then(() => {
+              location.reload()
+            })
+            // axios.post('http://localhost:3000/createkeyword',this.Keyword)
         }
     }
 

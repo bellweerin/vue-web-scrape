@@ -46,7 +46,7 @@ export default {
       axios.get("http://localhost:3000/").then((response) => {
         console.log(response.data);
         this.Jobs = response.data.results;
-      })
+      });
     }
   },
   

@@ -112,7 +112,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:3000/").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;

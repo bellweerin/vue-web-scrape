@@ -15,7 +15,7 @@
             <td>{{page.id}}</td>
             <td>{{page.name}}</td>
             <td>
-              <button v-on:click="deletePage(page)" class="btn btn-danger">Delete</button>
+              <button v-on:click="deletePage(page)" class="btn btn-danger" type="button">Delete</button>
             </td>
           </tr>
         </tbody>

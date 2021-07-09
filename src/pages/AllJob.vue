@@ -10,6 +10,7 @@
           
         </div>
       </div>
+      <progress-bar></progress-bar>
       <table-all-job></table-all-job>
     </div>
   </div>
@@ -18,10 +19,11 @@
 <script>
 import axios from 'axios';
 import TableAllJob from '@/components/TableAllJob';
+import ProgressBar from '@/components/ProgressBar';
 
 export default {
   name: "App",
-  components: {TableAllJob},
+  components: {TableAllJob,ProgressBar},
   mounted(){
     
   },

@@ -13,7 +13,7 @@
             />
           </div>
         </div>
-        <button v-on:click="addPage()" type="submit" class="btn btn-primary">
+        <button v-on:click="addPage()" type="button" class="btn btn-primary">
           Create
         </button>
         <button type="reset" value="Reset" class="btn btn-warning">
@@ -39,7 +39,9 @@ export default {
   },
   methods: {
     addPage() {
-      axios.post("http://localhost:3000/facebook_page/post",this.FacebookPage);
+      axios.post("https://aibedo.kisra.co.th/facebook_page/post",this.FacebookPage).then(() => {
+        location.reload()
+      })
     },
   },
 };
