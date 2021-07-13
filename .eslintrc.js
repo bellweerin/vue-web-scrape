@@ -47,13 +47,14 @@ module.exports = {
     
     "semi": "off",
     "semi-spacing": "off",
-    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": "off",
     "space-after-keywords": 'never',
     "spaced-comment": "off",
     "space-before-blocks": "off",
     "space-infix-ops": "off",
     "space-in-parens": "off",
     "skipBlankLines": true,
+    "space-unary-ops": "off",
 
     "quotes": "off",
 

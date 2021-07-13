@@ -15,22 +15,22 @@
         </thead>
         <tbody>
           <tr v-for="job in Jobs" :key="job.id">
-            <td>{{job.keyword}}</td>
-            <td>{{job.service}}</td>
-            <td>{{job.page}}</td>
-            <td>{{job.status}}</td>
-            <td>{{job.created_time}}</td>
-            <td>{{job.start_time}}</td>
-            <td>{{job.end_time}}</td>
+            <td>{{ job.keyword }}</td>
+            <td>{{ job.service }}</td>
+            <td>{{ job.page }}</td>
+            <td>{{ job.status }}</td>
+            <td>{{ job.created_time }}</td>
+            <td>{{ job.start_time }}</td>
+            <td>{{ job.end_time }}</td>
           </tr>
-         </tbody>
+        </tbody>
       </table>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios"
+import axios from "axios";
 export default {
   name: "TableJob",
   mounted() {
@@ -38,25 +38,24 @@ export default {
   },
   data() {
     return {
-      Jobs: {}
-    }
+      Jobs: {},
+    };
   },
   methods: {
-    fetchData(){
+    fetchData() {
       axios.get("http://localhost:3000/").then((response) => {
         console.log(response.data);
         this.Jobs = response.data.results;
       });
-    }
+    },
   },
-  
 };
 </script>
 
 <style scoped>
 #job-table {
-    /* width: 50rem; */
-    margin-left: auto;
-    margin-right: auto;
+  /* width: 50rem; */
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

@@ -89,7 +89,7 @@
         </div>
       </div>
       <div id="load" class="spinner-border text-warning" role="status">
-        <span class="sr-only">Loading...</span>
+        <span class="sr-only"></span>
       </div>
     </div>
   </div>
@@ -112,7 +112,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://aibedo.kisra.co.th/").then((response) => {
+    axios.get("http://localhost:3000/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;
