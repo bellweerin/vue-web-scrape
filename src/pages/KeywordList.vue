@@ -55,7 +55,7 @@ export default{
         this.eng_word = this.$route.params.eng_word;
     },
     mounted() {
-    axios.get("http://localhost:3000/fillterkeyword",{
+    axios.get("https://aibedo.kisra.co.th/fillterkeyword",{
         params:{
             id : this.id
         }
