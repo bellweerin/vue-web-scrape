@@ -58,7 +58,7 @@ export default {
   },
   methods: { 
     fetchData(){
-      axios.get("http://localhost:3000/getKeywordByService",{
+      axios.get("https://aibedo.kisra.co.th/getKeywordByService",{
         params:{
             service:this.service,
             id:this.id,

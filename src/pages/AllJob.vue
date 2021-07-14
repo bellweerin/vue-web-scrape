@@ -17,9 +17,16 @@
         </div>
       </div>
       <progress-bar></progress-bar>
-      <div id="load" class="spinner-border text-warning" role="status">
+
+      <button id="load" class="btn btn-warning" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Loading...
+      </button>
+
+      <!-- <div id="load" class="spinner-border text-warning" role="status">
         <span class="sr-only"></span>
-      </div>
+      </div> -->
+
       <table-all-job></table-all-job>
     </div>
   </div>
@@ -36,8 +43,8 @@ export default {
   mounted() {},
   methods: {
     run() {
-      // this.loading();
-      axios.post("http://localhost:3000/job/run").then((response) => {
+      this.loading();
+      axios.post("https://aibedo.kisra.co.th/job/run").then((response) => {
           console.log(response);
           location.reload();
         })
@@ -46,8 +53,8 @@ export default {
         });
     },
     create() {
-      // this.loading();
-      axios.post("http://localhost:3000/job/create").then((response) => {
+      this.loading();
+      axios.post("https://aibedo.kisra.co.th/job/create").then((response) => {
           console.log(response);
           // this.success();
           location.reload();
@@ -57,7 +64,7 @@ export default {
         });
     },
     start() {
-      axios.post("http://localhost:3000/job/start").then((response) => {
+      axios.post("https://aibedo.kisra.co.th/job/start").then((response) => {
           console.log(response);
         })
         .catch((error) => {

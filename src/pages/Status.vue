@@ -82,7 +82,7 @@ export default {
       this.click = 1;
     },
     fetchData(){
-      axios.get("http://localhost:3000/status").then((response) => {
+      axios.get("https://aibedo.kisra.co.th/status").then((response) => {
         this.Datas = response.data.lodash;
         this.Keyword = response.data.keywords;
       });
