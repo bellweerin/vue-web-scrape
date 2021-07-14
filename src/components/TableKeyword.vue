@@ -42,11 +42,11 @@ export default {
   },
   methods: {
     _delete(id){
-      axios.post("http://localhost:3000/deletekeyword",{"id": id})
+      axios.post("https://aibedo.kisra.co.th/deletekeyword",{"id": id})
       location.reload();
     },
     fetchData(){
-      axios.get("http://localhost:3000/keyword").then((response) => {
+      axios.get("https://aibedo.kisra.co.th/keyword").then((response) => {
         this.Keywords = response.data.keywords;
       })
     }

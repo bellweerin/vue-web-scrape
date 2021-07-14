@@ -71,7 +71,7 @@ export default {
       );
     },
     axiosData() {
-      axios.get("http://localhost:3000/job").then((response) => {
+      axios.get("https://aibedo.kisra.co.th/job").then((response) => {
         // console.log(response.data);
         this.Jobs = response.data.jobs;
       });

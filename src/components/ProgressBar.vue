@@ -35,7 +35,7 @@ export default {
       
     },
     fetchData(){
-        axios.get("http://localhost:3000/job/progress").then((response) => {
+        axios.get("https://aibedo.kisra.co.th/job/progress").then((response) => {
           this.Current_progress = response.data.current_progress
         });
     },

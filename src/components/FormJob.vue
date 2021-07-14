@@ -112,7 +112,7 @@ export default {
     };
   },
   mounted() {
-    axios.get("http://localhost:3000/").then((response) => {
+    axios.get("https://aibedo.kisra.co.th/").then((response) => {
       this.services = response.data.services;
       this.keywords = response.data.keywords;
       this.facebook_pages = response.data.facebook_pages;
@@ -122,7 +122,7 @@ export default {
     addJob() {
       this.loading();
       axios
-        .post("http://localhost:3000/post", this.job)
+        .post("https://aibedo.kisra.co.th/post", this.job)
         .then((response) => {
           console.log(response);
           // this.success();
