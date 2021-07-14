@@ -16,6 +16,9 @@ export default {
   components: {
     FormJob,
     TableJob
+  },
+  mounted(){
+    console.log(process.env.KEY)
   }
 }
 </script>
