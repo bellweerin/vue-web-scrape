@@ -46,18 +46,20 @@
 import axios from "axios";
 export default {
   name: "TableAllJob",
-  mounted() {
-    this.fetchData();
-    this.updateStatus();
-    this.paginate();
-  },
   data() {
     return {
-      Jobs: {},
+      Jobs: [],
       perPage: 20,
       currentPage: 1,
     };
   },
+  mounted() {
+    this.fetchData();
+    this.updateStatus();
+    // this.reverse();
+    
+  },
+  
   methods: {
     fetchData() {
       this.axiosData();
@@ -74,15 +76,21 @@ export default {
       axios.get("http://localhost:3000/job").then((response) => {
         // console.log(response.data);
         this.Jobs = response.data.jobs;
+        this.reverse(this.Jobs);
+        // console.log(this.Jobs)
       });
     },
-    paginate() {
-      // console.log(this.Jobs);
-      for (job in this.Jobs) {
-        // console.log(index)
-        console.log(job);
-      }
-    },
+    reverse(jobs){
+      jobs.reverse();
+      // console.log(jobs);
+      // for(let job of jobs){
+      //   console.log(job.id)
+      // }
+      // for (let i =0;i<this.Jobs.length;i++) {
+      //   // console.log(this.Jobs[i])
+      //   console.log(i);
+      // }
+    }
   },
   computed: {
     rows() {

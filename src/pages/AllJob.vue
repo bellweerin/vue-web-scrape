@@ -36,9 +36,8 @@ export default {
   mounted() {},
   methods: {
     run() {
-      // this.loading();
+      this.loading();
       axios.post("http://localhost:3000/job/run").then((response) => {
-          console.log(response);
           location.reload();
         })
         .catch((error) => {
@@ -46,10 +45,8 @@ export default {
         });
     },
     create() {
-      // this.loading();
+      this.loading();
       axios.post("http://localhost:3000/job/create").then((response) => {
-          console.log(response);
-          // this.success();
           location.reload();
         })
         .catch((error) => {
