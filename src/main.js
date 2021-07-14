@@ -7,6 +7,8 @@ import { BootstrapVue, BootstrapVueIcons , IconsPlugin } from "bootstrap-vue"
 // import {}
 import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap-vue/dist/bootstrap-vue.css"
+import dotenv from "dotenv";
+dotenv.config();
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)

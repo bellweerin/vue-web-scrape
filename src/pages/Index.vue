@@ -10,7 +10,8 @@
 
 import FormJob from "@/components/FormJob"
 import TableJob from "@/components/TableJob"
-
+import dotenv from "dotenv"
+dotenv.config()
 export default {
   name: "Index",
   components: {
@@ -18,7 +19,7 @@ export default {
     TableJob
   },
   mounted(){
-    console.log(process.env.KEY)
+    // console.log(process.env.VUE_APP_KEY)
   }
 }
 </script>
