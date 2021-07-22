@@ -56,8 +56,7 @@ export default {
   mounted() {
     this.fetchData();
     this.updateStatus();
-    // this.reverse();
-    
+  
   },
   
   methods: {

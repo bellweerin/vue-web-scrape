@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     addPage() {
-      axios.post("https://aibedo.kisra.co.th/facebook_page/post",this.FacebookPage).then(() => {
+      axios.post("http://localhost:3000/facebook_page/post",this.FacebookPage).then(() => {
         location.reload()
       })
     },

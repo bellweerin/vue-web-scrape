@@ -12,15 +12,24 @@
       :items="Data"
       :per-page="perPage"
       :current-page="currentPage"
+      :fields="fields"
       small
-    ></b-table>
-    <!-- <table class="table table-dark">
+    >
+      <template #cell(name)="row">
+        <a :href="row.item.url">{{row.item.name}}</a>
+        <!-- {{row.item.img_src}} -->
+      </template>
+      <template #cell(img_src)="row">
+        <img :src="row.item.img_src" alt="" />
+        <!-- {{row.item.img_src}} -->
+      </template>
+    </b-table>
+    <!-- <table class="table table-dark" id="amazon" >
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">product id</th>
           <th scope="col">name</th>
-
           <th scope="col">rank</th>
           <th scope="col">rating</th>
           <th scope="col">review</th>
@@ -53,6 +62,26 @@ export default {
       Data: this.Data,
       perPage: 50,
       currentPage: 1,
+      fields: [
+        {
+          key: "id",
+        },
+        {
+          key: "name",
+        },
+        {
+          key: "rank",
+        },
+        {
+          key: "rating",
+        },
+        {
+          key: "review",
+        },
+        {
+          key: "img_src",
+        },
+      ],
     };
   },
   mounted() {

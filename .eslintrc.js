@@ -33,6 +33,7 @@ module.exports = {
     "no-undef": "off",
     "no-dupe-keys": "off",
     "no-new": "off",
+    "no-template-curly-in-string": "off",
 
     "indent": "off",
     "ignoreComments": true,
