@@ -12,8 +12,16 @@
       :items="Data"
       :per-page="perPage"
       :current-page="currentPage"
+      :fields="fields"
       small
-    ></b-table>
+    >
+      <template #cell(post_text)="row">
+        <a :href="row.item.post_url">{{ row.item.post_text }}</a>
+      </template>
+      <template #cell(img_src)="row">
+        <img :src="row.item.img_src" width="250" height="250" />
+      </template>
+    </b-table>
     <!-- <table class="table table-dark" data-toggle="table">
       <thead>
         <tr>
@@ -47,6 +55,24 @@ export default {
       Data: this.Data,
       perPage: 50,
       currentPage: 1,
+       fields: [
+        {
+          key: "id",
+        },
+        {
+          key: "user_name",
+        },
+        {
+          key: "post_text",
+        },
+        {
+          key: "meaning",
+        },
+        {
+          key: "img_src",
+          label: "Image"
+        }
+      ],
     };
   },
   mounted() {

@@ -17,11 +17,9 @@
     >
       <template #cell(name)="row">
         <a :href="row.item.url">{{row.item.name}}</a>
-        <!-- {{row.item.img_src}} -->
       </template>
       <template #cell(img_src)="row">
-        <img :src="row.item.img_src" alt="" />
-        <!-- {{row.item.img_src}} -->
+        <img :src="row.item.img_src" width="250" height="250" />
       </template>
     </b-table>
     <!-- <table class="table table-dark" id="amazon" >

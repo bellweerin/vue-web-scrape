@@ -1,6 +1,6 @@
 <template>
   <div id="pantip-table" class="container">
-     <b-pagination
+    <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -12,8 +12,16 @@
       :items="Data"
       :per-page="perPage"
       :current-page="currentPage"
+      :fields="fields"
       small
-    ></b-table>
+    >
+      <template #cell(title)="row">
+        <a :href="row.item.post_link">{{ row.item.title }}</a>
+      </template>
+      <template #cell(img_src)="row">
+        <img :src="row.item.img_src" width="250" height="250" />
+      </template>
+    </b-table>
     <!-- <table class="table table-dark" id="top">
       <thead>
         <tr>
@@ -58,11 +66,29 @@ export default {
       Data: this.Data,
       perPage: 50,
       currentPage: 1,
+      fields: [
+        {
+          key: "id",
+        },
+        {
+          key: "title",
+        },
+        {
+          key: "story",
+        },
+        {
+          key: "author",
+        },
+        {
+          key: "meaning",
+        },
+        {
+          key: "img_src",
+        },
+      ],
     };
   },
-  mounted() {
-    
-  },
+  mounted() {},
   methods: {},
   computed: {
     rows() {

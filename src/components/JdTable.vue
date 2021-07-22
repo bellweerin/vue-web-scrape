@@ -12,8 +12,16 @@
       :items="Data"
       :per-page="perPage"
       :current-page="currentPage"
+      :fields="fields"
       small
-    ></b-table>
+    >
+      <template #cell(name)="row">
+        <a :href="row.item.url">{{ row.item.name }}</a>
+      </template>
+      <template #cell(img_src)="row">
+        <img :src="row.item.img_src" width="250" height="250" />
+      </template>
+    </b-table>
     <!-- <table class="table table-dark">
       <thead>
         <tr>
@@ -53,10 +61,26 @@ export default {
       Data: this.Data,
       perPage: 50,
       currentPage: 1,
+      fields: [
+        {
+          key: "id",
+        },
+        {
+          key: "name",
+        },
+        {
+          key: "price",
+        },
+        {
+          key: "review",
+        },
+        {
+          key: "img_src",
+        }
+      ],
     };
   },
   mounted() {
-    axios.get("");
     console.log(this.Data);
   },
   methods: {},
