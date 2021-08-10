@@ -44,6 +44,7 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 export default {
   name: "TableAllJob",
   mounted() {
@@ -74,6 +75,26 @@ export default {
       axios.get("https://aibedo.kisra.co.th/job").then((response) => {
         // console.log(response.data);
         this.Jobs = response.data.jobs;
+        this.Jobs = this.Jobs.map(r => {
+          let start_time = "not start"
+          let end_time = "not done"
+          let created_time = moment(r.created_time).format('llll')
+
+          if(r.start_time){
+            start_time = moment(r.start_time).format('llll')
+          }
+          if(r.end_time){
+            end_time = moment(r.end_time).format('llll')
+          }
+
+          return{
+            ...r,
+            created_time,
+            start_time,
+            end_time
+            }
+        })
+
       });
     },
     paginate() {

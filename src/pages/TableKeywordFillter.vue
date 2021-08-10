@@ -65,7 +65,7 @@ export default {
             service_id:this.service_id
         }
       }).then((response) => {
-          this.Data = response.data.data;
+          this.Data = response.data;
           console.log("data",this.Data)
       })
     

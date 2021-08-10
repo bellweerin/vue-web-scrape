@@ -1,6 +1,6 @@
 <template>
   <div id="shopee-table" class="container">
-    <b-pagination
+    <!-- <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -13,8 +13,8 @@
       :per-page="perPage"
       :current-page="currentPage"
       small
-    ></b-table>
-    <!-- <table class="table table-dark" data-toggle="table">
+    ></b-table> -->
+    <table class="table table-dark" data-toggle="table">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -41,7 +41,7 @@
           <td><img :src="data.img_src" width="250" height="250" /></td>
         </tr>
       </tbody>
-    </table> -->
+    </table>
   </div>
 </template>
 

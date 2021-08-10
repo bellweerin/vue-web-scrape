@@ -36,10 +36,10 @@
       </div>
       </d> -->
       </div>
-      <b-button v-b-modal.modal-1 v-on:click="chartComponent(Data,key)" class="card-link" variant="primary">Chart</b-button>
+      <!-- <b-button v-b-modal.modal-1 v-on:click="chartComponent(Data,key)" class="card-link" variant="primary">Chart</b-button>
        <b-modal id="modal-1" size="xl" title="chart">
             <AllChart  :chartData="chartData"></AllChart>
-        </b-modal>
+        </b-modal> -->
 
 
     </div>
@@ -61,9 +61,9 @@ import dataChart from "../data-chart";
 export default {
   name: "Status",
   components: {
-    AllChart,
+    // AllChart,
   },
-  components: { AllChart },
+  // components: { AllChart },
   props: [""],
   mounted() {
     this.fetchData();
@@ -71,19 +71,19 @@ export default {
   data() {
     return {
       Datas: {},
-      chartData: {},
+      // chartData: {},
       Keyword: [],
       click: 0,
     };
   },
   methods: {
-    chartComponent() {
-      this.chartData = dataChart.set(this.Keyword, this.Datas);
-      this.click = 1;
-    },
+    // chartComponent() {
+    //   this.chartData = dataChart.set(this.Keyword, this.Datas);
+    //   this.click = 1;
+    // },
     fetchData(){
       axios.get("https://aibedo.kisra.co.th/status").then((response) => {
-        this.Datas = response.data.lodash;
+        // this.Datas = response.data.lodash;
         this.Keyword = response.data.keywords;
       });
     }

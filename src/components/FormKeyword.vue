@@ -35,7 +35,6 @@ export default {
     },
     methods: {
         addKeyword(){
-          console.log("asdfasdfasdfs")
             axios.post('https://aibedo.kisra.co.th/createkeyword',this.Keyword).then(() => {
               location.reload()
             })

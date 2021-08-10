@@ -11,6 +11,12 @@
               class="form-control"
               placeholder="Page Name"
             />
+            <input
+              v-model="FacebookPage.page_id"
+              type="text"
+              class="form-control"
+              placeholder="Page ID"
+            />
           </div>
         </div>
         <button v-on:click="addPage()" type="button" class="btn btn-primary">
@@ -34,11 +40,13 @@ export default {
     return {
       FacebookPage: {
         name: "",
+        page_id:""
       },
     };
   },
   methods: {
     addPage() {
+      console.log(this.FacebookPage)
       axios.post("https://aibedo.kisra.co.th/facebook_page/post",this.FacebookPage).then(() => {
         location.reload()
       })
