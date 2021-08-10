@@ -44,12 +44,8 @@ export default {
   methods: {
     run() {
       this.loading();
-<<<<<<< HEAD
       axios.post("https://aibedo.kisra.co.th/job/run").then((response) => {
           console.log(response);
-=======
-      axios.post("http://localhost:3000/job/run").then((response) => {
->>>>>>> 76377bb1e8c886dfff5921e01cef365f96224ac4
           location.reload();
         })
         .catch((error) => {
