@@ -45,7 +45,7 @@ export default {
     fetchData() {
       axios.get("https://aibedo.kisra.co.th/").then((response) => {
         console.log(response.data);
-        this.Jobs = response.data.results;
+        this.Jobs = response.data.jobs;
       });
     },
   },
