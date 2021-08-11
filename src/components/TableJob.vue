@@ -1,7 +1,20 @@
 <template>
   <div id="table-job">
     <div class="container">
-      <table class="table" id="job-table">
+      <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="job-table"
+    ></b-pagination>
+     <b-table
+      id="job-table"
+      :items="Jobs"
+      :per-page="perPage"
+      :current-page="currentPage"
+      small
+    ></b-table>
+      <!-- <table class="table" id="job-table">
         <thead>
           <tr class="table-warning">
             <th scope="col">Page name/Keyword</th>
@@ -24,7 +37,7 @@
             <td>{{ job.end_time }}</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
   </div>
 </template>
@@ -39,6 +52,8 @@ export default {
   data() {
     return {
       Jobs: {},
+      perPage: 20,
+      currentPage: 1,
     };
   },
   methods: {
@@ -47,6 +62,11 @@ export default {
         console.log(response.data);
         this.Jobs = response.data.jobs;
       });
+    },
+  },
+  computed: {
+    rows() {
+      return this.Jobs.length;
     },
   },
 };
