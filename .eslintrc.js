@@ -56,6 +56,7 @@ module.exports = {
     "space-in-parens": "off",
     "skipBlankLines": true,
     "space-unary-ops": "off",
+    "no-unused-vars" : "off",
 
     "quotes": "off",
 

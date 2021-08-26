@@ -20,6 +20,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">product id</th>
+          <th scope="col">brand</th>
           <th scope="col">name</th>
           <th scope="col">rank</th>
           <th scope="col">rating</th>
@@ -33,6 +34,7 @@
           <td>
             <a :href="data.url" target="_blank">{{ data.product_id }}</a>
           </td>
+          <td>{{ data.brand }}</td>
           <td>{{ data.name }}</td>
           <td>{{ data.rank }}</td>
           <td>{{ data.rating }}</td>
