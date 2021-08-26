@@ -14,15 +14,8 @@
       :current-page="currentPage"
       :fields="fields"
       small
-    >
-      <template #cell(title)="row">
-        <a :href="row.item.post_link">{{ row.item.title }}</a>
-      </template>
-      <template #cell(img_src)="row">
-        <img :src="row.item.img_src" width="250" height="250" />
-      </template>
-    </b-table>
-    <!-- <table class="table table-dark" id="top">
+    ></b-table>
+    <table class="table table-dark" id="top">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -53,7 +46,7 @@
           <td><img :src="data.img_src" width="250" height="250" /></td>
         </tr>
       </tbody>
-    </table> -->
+    </table>
   </div>
 </template>
 

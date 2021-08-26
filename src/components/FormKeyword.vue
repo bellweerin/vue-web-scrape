@@ -112,32 +112,26 @@
 <script>
 // import axios from "axios";
 export default {
-  name: "FormKeyword",
-  data() {
-    return {
-      Keyword: {
-        thai_word: "",
-        eng_word: "",
-        is_food: 0,
-        is_health: 0,
-        is_beauty: 0,
-        is_spa: 0,
-        is_travel: 0
-      },
-    };
-  },
-  methods: {
-    addKeyword() {
-      // document.getElementById("create").style.backgroundColor = 'red'
-      // console.log(this.K)
-
-      // axios
-      //   .post("http://localhost:3000/createkeyword", this.Keyword)
-      //   .then((response) => {
-      //     location.reload();
-      //   });
+    name: 'FormKeyword',
+    data() {
+        return { 
+            Keyword: {
+                thai_word : '',
+                eng_word : ''
+            }
+        }
     },
-  },
+    methods: {
+        addKeyword(){
+            axios.post('https://aibedo.kisra.co.th/createkeyword',this.Keyword).then(() => {
+              location.reload()
+            })
+            // axios.post('http://localhost:3000/createkeyword',this.Keyword)
+        }
+    }
+
+    
+  
 };
 </script>
 

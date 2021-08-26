@@ -75,7 +75,7 @@ export default {
   },
   methods: {
     fetchData(){
-      axios.get("http://localhost:3000/fillterkeyword", {
+      axios.get("https://aibedo.kisra.co.th/fillterkeyword", {
         params: {
           id: this.id,
         },

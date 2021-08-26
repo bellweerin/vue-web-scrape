@@ -1,6 +1,6 @@
 <template>
   <div id="facebook-table" class="container">
-    <b-pagination
+    <!-- <b-pagination
       v-model="currentPage"
       :total-rows="rows"
       :per-page="perPage"
@@ -14,20 +14,14 @@
       :current-page="currentPage"
       :fields="fields"
       small
-    >
-      <template #cell(post_text)="row">
-        <a :href="row.item.post_url">{{ row.item.post_text }}</a>
-      </template>
-      <template #cell(img_src)="row">
-        <img :src="row.item.img_src" width="250" height="250" />
-      </template>
-    </b-table>
-    <!-- <table class="table table-dark" data-toggle="table">
+    ></b-table> -->
+    <table class="table table-dark" data-toggle="table">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">post id</th>
           <th scope="col">post</th>
+          <th scope="col">user_name </th>
 
           <th scope="col">img</th>
         </tr>
@@ -39,10 +33,11 @@
             <a :href="data.post_url" target="_blank">{{ data.post_id }}</a>
           </td>
           <td>{{ data.post_text }}</td>
+          <td>{{data.user_name}}</td>
           <td><img :src="data.image_h" width="250" height="250" /></td>
         </tr>
       </tbody>
-    </table> -->
+    </table>
   </div>
 </template>
 
