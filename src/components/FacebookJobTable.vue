@@ -27,6 +27,10 @@
               <div v-if="row.item.status == 'failed'">
               <div class="failed">{{row.item.status}}</div>
               </div>
+              <div v-if="row.item.status == 'in progress'">
+              <div class="in-progress">{{row.item.status}}</div>
+              </div>
+              
             </template>
           </b-table>
 
@@ -177,6 +181,18 @@ export default {
 .failed{
   background-color: #FC4F4F;
   color: white;
+  text-align: center;
+  width: 90px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 30px;
+  /* border: 2px solid black; */
+  height: 46px;
+  padding: 10px;
+}
+.in-progress{
+  background-color: #7DFFE8;
+  color: black;
   text-align: center;
   width: 90px;
   margin-right: auto;
