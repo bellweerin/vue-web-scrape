@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: () => import('../pages/Index.vue')
+      component: () => import('../pages/AllJob.vue')
     },
     {
       path: '/status',
@@ -40,6 +40,12 @@ export default new Router({
       path: '/all-job',
       name: 'all-job',
       component: () => import('../pages/AllJob.vue')
+
+    },
+    {
+      path: '/facebook-job',
+      name: 'facebook-job',
+      component: () => import('../pages/FaceBookJob.vue')
 
     }
   ]

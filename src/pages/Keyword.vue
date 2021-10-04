@@ -13,3 +13,6 @@ export default {
   components: {TableKeyword,FormKeyword}
 }
 </script>
+<style scoped>
+
+</style>

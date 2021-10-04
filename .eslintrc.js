@@ -35,6 +35,8 @@ module.exports = {
     "no-new": "off",
     "no-template-curly-in-string": "off",
 
+    "arrow-spacing": "off",
+
     "indent": "off",
     "ignoreComments": true,
 
@@ -67,6 +69,8 @@ module.exports = {
    
     "brace-style": "off",
     "vue/no-dupe-keys": "off",
+
+    "object-curly-even-spacing": "off",
     
     
   }

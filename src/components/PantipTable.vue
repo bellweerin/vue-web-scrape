@@ -1,52 +1,52 @@
 <template>
   <div id="pantip-table" class="container">
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="pantip"
-    ></b-pagination>
-
     <b-table
+      hover
+      bordered
+      thead-class="bg-dark text-white"
       id="pantip"
       :items="Data"
       :per-page="perPage"
       :current-page="currentPage"
       :fields="fields"
       small
-    ></b-table>
-    <table class="table table-dark" id="top">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">post id</th>
-          <th scope="col">title</th>
-          <th scope="col">story</th>
-          <th scope="col">author</th>
-          <th scope="col">date time</th>
-          <th scope="col">meaning</th>
-          <th scope="col">good word</th>
-          <th scope="col">bad word</th>
-          <th scope="col">img</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(data, index) in Data" :key="data">
-          <td>{{ index + 1 }}</td>
-          <td>
-            <a :href="data.post_link" target="_blank">{{ data.post_id }}</a>
-          </td>
-          <td>{{ data.title }}</td>
-          <td>{{ data.story }}</td>
-          <td>{{ data.author }}</td>
-          <td>{{ data.date_time }}</td>
-          <td>{{ data.meaning }}</td>
-          <td>{{ data.good_word }}</td>
-          <td>{{ data.bad_word }}</td>
-          <td><img :src="data.img_src" width="250" height="250" /></td>
-        </tr>
-      </tbody>
-    </table>
+    >
+      <template #cell(number)="row">
+        {{ row.index + 1 }}
+      </template>
+      <template #cell(title)="row">
+        <a class="a-link" :href="row.item.post_link">{{ row.item.title }}</a>
+      </template>
+      <template #cell(img_src)="row">
+        <div class="container" v-if="row.item.img_src != 'no img'">
+          <button
+            class="btn btn-info show"
+            v-bind:id="row.index"
+            v-on:click="showImage(row.index, row.item.id)"
+          >Show Image</button>
+          <br />
+          <img
+            :src="row.item.img_src"
+            width="200"
+            height="200"
+            class="image"
+            v-bind:id="row.item.id"
+          />
+        </div>
+        <div class="container" v-else>
+          <div class="no-img">No image</div>
+
+        </div>
+      </template>
+    </b-table>
+
+    <b-pagination
+      class="page"
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="pantip"
+    ></b-pagination>
   </div>
 </template>
 
@@ -57,11 +57,12 @@ export default {
   data() {
     return {
       Data: this.Data,
-      perPage: 50,
+      perPage: 10,
       currentPage: 1,
       fields: [
         {
-          key: "id",
+          key: "number",
+          label: "No.",
         },
         {
           key: "title",
@@ -77,12 +78,31 @@ export default {
         },
         {
           key: "img_src",
+          label: "Image",
         },
       ],
     };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    showImage(btn_id,img_id){
+      let image = document.getElementById(img_id);
+      let button = document.getElementById(btn_id);
+      console.log( button.textContent)
+      if(image.style.display == 'none' || button.textContent.includes('Show Image')){
+        console.log(1)
+        image.style.display = 'block';
+        button.textContent = 'Hide Image'
+        button.className = 'btn btn-info hide' 
+      }
+      else{
+        image.style.display = 'none';
+        button.textContent = 'Show Image'
+        button.className = 'btn btn-info show' 
+        console.log(2)
+      }
+    }
+  },
   computed: {
     rows() {
       return this.Data.length;
@@ -90,3 +110,48 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.page {
+  border: 2px solid black;
+  float: right;
+}
+.image {
+  display: none;
+}
+.show {
+  background-color: #7dffb1;
+  color: black;
+  border-width: 2px;
+  border-color: black;
+}
+.b-table {
+  background-color: white;
+  margin-top: 20px;
+}
+.hide {
+  background-color: grey;
+  color: white;
+  border-width: 2px;
+  border-color: black;
+}
+.a-link {
+  color: #850f39;
+}
+.a-link:hover {
+  color: #9382ff;
+}
+.no-img{
+  background-color: #FC4F4F;
+  color: white;
+  text-align: center;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 30px;
+  /* border: 2px solid black; */
+  height: 50px;
+  padding: 10px;
+}
+</style>
+

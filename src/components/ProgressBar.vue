@@ -1,8 +1,8 @@
 <template>
   <div id="progress-bar">
-    <b-progress :max="Current_progress.count_all_job" height="2rem" show-progress animated>
-      <b-progress-bar id="progress" class="progress-bar progress-bar-striped bg-danger" :value="Current_progress.count_success_job" show-progress animated>
-        <span><strong>{{ Current_progress.count_success_job }} / {{ Current_progress.count_all_job }}</strong></span>
+    <b-progress :max="Current_progress.count_all_job" class="outer-progress" id="out-pg" show-progress animated>
+      <b-progress-bar id="progress" class="progress-bar bg-white" :value="Current_progress.count_success_job" show-progress animated>
+        <span><strong class="amount-jobs">{{ Current_progress.count_success_job }} / {{ Current_progress.count_all_job }}</strong></span>
       </b-progress-bar>
       
     </b-progress>
@@ -47,18 +47,22 @@ export default {
       let progress = document.getElementById("progress");
 
       if(percent <= 25 ){
-        progress.className = "progress-bar progress-bar-striped bg-danger";
+        progress.className = "progress-bar red-25";
       }
       else if(percent <= 50 && percent > 25){
-        progress.className = "progress-bar progress-bar-striped bg-warning";
+        progress.className = "progress-bar orange-50";
       }
       else if(percent <= 75 && percent > 50){
-        progress.className = "progress-bar progress-bar-striped bg-info";
+        progress.className = "progress-bar yellow-75";
       }
-      else {
-        progress.className = "progress-bar progress-bar-striped bg-success";
+      else if(percent > 75 && percent < 100){
+        progress.className = "progress-bar green-99";
         // progress.style.animation = "animate-stripes 3s linear infinite"
       }
+      else{
+        progress.className = "progress-bar blue-100"
+      }
+
 
     }
     
@@ -69,9 +73,42 @@ export default {
 <style scoped>
   #progress {
     animation: animate-stripes 3s linear infinite;
+    border-color: white;
+    border-width: 2px;
   }
   @keyframes animate-stripes {
     100% {background-position: 60px 0;}
     
+  }
+  .red-25{
+    background-color: #FC4F4F;
+  }
+  .orange-50{
+    background-color: #FFBE82;
+
+  }
+  .yellow-75{
+    background-color: #FFEA7D;
+
+  }
+  .green-99{
+    background-color: #A7FF7D;
+  }
+  .blue{
+    background-color: #7DFFB1;
+  }
+  .amount-jobs{
+    border-width: 1px;
+    border-color: black;
+    color: black;
+  }
+
+  .outer-progress{
+    height: 30px;
+    margin-top: 5.5px;
+    /* border-width: 2px; */
+    border: 2px solid black;
+    margin-bottom: auto;
+    max-width: 490px;
   }
 </style>

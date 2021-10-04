@@ -1,23 +1,23 @@
 <template>
-  <div id="table-all-job">
+  <div id="facebook-job-table">
     <div class="container">
       <div class="card">
-        <div class="head"><h1 class="header">Jobs Table</h1></div>
+        <div class="head"> <h1 class="header">Facebook Jobs Table</h1></div>
         <div class="card-body">
           <b-table
             bordered
             hover
             thead-class="bg-dark text-white"
-            id="job-table"
-            :items="Jobs"
+            id="table-job-facebook"
+            :items="facebook_jobs"
             :per-page="perPage"
             :current-page="currentPage"
             :fields="fields"
           >
-            <template #cell(number)="row">
+          <template #cell(number)="row">
               {{ row.index + 1 }}
             </template>
-             <template #cell(status)="row">
+            <template #cell(status)="row">
               <div v-if="row.item.status == 'success'">
               <div class="success">{{row.item.status}}</div>
               </div>
@@ -35,7 +35,7 @@
             :total-rows="rows"
             :per-page="perPage"
             class="page"
-            aria-controls="job-table"
+            aria-controls="table-job-facebook"
           ></b-pagination>
         </div>
       </div>
@@ -47,134 +47,110 @@
 import axios from "axios";
 import moment from "moment";
 export default {
-  name: "TableAllJob",
+  name: "FacebookJobTable",
+  // props: ["facebook_jobs"],
+  components: {},
   data() {
     return {
-      Jobs: [],
+      facebook_jobs: {},
       perPage: 10,
       currentPage: 1,
-      fields: [
+       fields: [
         { key: "number", label: "No." },
-        { key: "keyword", label: "Keyword" },
-        { key: "service", label: "Service" },
-        { key: "page", label: "Page" },
+        { key: "page_name", label: "Page Name" },
+        { key: "amount_post", label: "Amount post" },
         { key: "created_time", label: "Created time" },
         { key: "start_time", label: "Start time" },
         { key: "end_time", label: "End time" },
         { key: "status", label: "Status" },
       ],
+      
     };
   },
   mounted() {
     this.fetchData();
-    this.updateStatus();
   },
-
   methods: {
     fetchData() {
-      this.axiosData();
-    },
-    updateStatus() {
-      setInterval(
-        function () {
-          this.axiosData();
-        }.bind(this),
-        10000
-      );
-    },
-    axiosData() {
-      axios.get("https://aibedo.kisra.co.th/job").then((response) => {
-        // console.log(response.data);
-        this.Jobs = response.data.jobs;
-        this.Jobs = this.Jobs.map((r) => {
-          let start_time = "not start";
-          let end_time = "not done";
-          let created_time = moment(r.created_time).format("llll");
-
-          if (r.start_time) {
-            start_time = moment(r.start_time).format("llll");
-          }
-          if (r.end_time) {
-            end_time = moment(r.end_time).format("llll");
-          }
-
-          return {
-            ...r,
-            created_time,
-            start_time,
-            end_time,
-          };
+      axios
+        .get("https://aibedo.kisra.co.th/job/facebook")
+        .then((response) => {
+          this.facebook_jobs = response.data;
+          this.facebook_jobs = this.facebook_jobs.map((r) => {
+            let start_time = "not start";
+            let end_time = "not done";
+            let created_time = moment(r.created_time).format("llll");
+            if (r.start_time) {
+              start_time = moment(r.start_time).format("llll");
+            }
+            if (r.end_time) {
+              end_time = moment(r.end_time).format("llll");
+            }
+            return {
+              ...r,
+              created_time,
+              start_time,
+              end_time,
+            };
+          });
+        })
+        .catch((error) => {
+          console.error(error);
         });
-      });
-    },
-    reverse(jobs) {
-      jobs.reverse();
-      // console.log(jobs);
-      // for(let job of jobs){
-      //   console.log(job.id)
-      // }
-      // for (let i =0;i<this.Jobs.length;i++) {
-      //   // console.log(this.Jobs[i])
-      //   console.log(i);
-      // }
     },
   },
   computed: {
     rows() {
-      return this.Jobs.length;
+      return this.facebook_jobs.length;
     },
   },
 };
 </script>
 
 <style scoped>
-.page {
-  float: right;
-  margin-right: 20px;
-  border: 2px solid black;
-}
-.header {
+ .card{
+  
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: #8944e1;
+  box-shadow: 8px 8px black;
+ }
+ .header {
   margin-left: auto;
   margin-right: auto;
   font-size: 32px;
   text-shadow: 1px 1px black;
 }
-.head {
+.head{
   background-color: white;
   text-align: center;
-  width: 250px;
+  width: 200px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 10px;
-
   /* border-width: 2px; */
   border: 2px solid black;
-  height: 60px;
+  height: 100px;
   margin-top: 20px;
   padding: 10px;
 }
-.card {
-  border-radius: 10px;
-  margin-bottom: 60px;
-  margin-top: 60px;
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  background-color: #fadd79;
-  border-color: #fadd79;
-  border-width: 2px;
-  box-shadow: 8px 8px black;
-}
-
-#job-table {
-  background-color: white;
-  width: 920px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-.success{
+ .page{
+   float: right;
+   margin-right: 30px;
+   border: 2px solid black;
+ }
+ #table-job-facebook{
+   background-color: white;
+   margin-left: auto;
+   margin-right: auto;
+   width: 920px;
+    margin-top: 10px;
+ }
+ .success{
   background-color: #7DFFB1;
   color: black;
   text-align: center;

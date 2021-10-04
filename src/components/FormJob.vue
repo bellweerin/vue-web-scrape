@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     addJob() {
-      this.loading();
+      // this.loading();
       axios
         .post("https://aibedo.kisra.co.th/post", this.job)
         .then((response) => {
@@ -178,6 +178,10 @@ export default {
   margin-right: auto;
   width: 40rem;
 }
+.card-body{
+  background-color: #F5B9FF;
+}
+
 #button {
   text-align: right;
 }
