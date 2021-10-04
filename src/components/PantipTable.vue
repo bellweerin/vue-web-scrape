@@ -65,6 +65,10 @@ export default {
           label: "No.",
         },
         {
+          key: "id",
+          label: "ID",
+        },
+        {
           key: "title",
         },
         {

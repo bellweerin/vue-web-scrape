@@ -58,6 +58,10 @@ export default {
       currentPage: 1,
       fields: [
         { key: "number", label: "No." },
+        {
+          key: "id",
+          label: "ID",
+        },
         { key: "keyword", label: "Keyword" },
         { key: "service", label: "Service" },
         { key: "page", label: "Page" },

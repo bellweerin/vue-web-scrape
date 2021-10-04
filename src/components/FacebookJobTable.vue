@@ -61,6 +61,10 @@ export default {
       currentPage: 1,
        fields: [
         { key: "number", label: "No." },
+        {
+          key: "id",
+          label: "ID",
+        },
         { key: "page_name", label: "Page Name" },
         { key: "amount_post", label: "Amount post" },
         { key: "created_time", label: "Created time" },

@@ -49,6 +49,10 @@ export default {
           label: "No.",
         },
         {
+          key: "id",
+          label: "ID",
+        },
+        {
           key: "thai_word",
           label: "Thai keyword",
         },

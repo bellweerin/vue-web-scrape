@@ -68,6 +68,10 @@ export default {
           label: "No.",
         },
         {
+          key: "id",
+          label: "ID",
+        },
+        {
           key: "page_id",
           label: "Page ID",
         },
