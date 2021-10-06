@@ -14,9 +14,10 @@
             :current-page="currentPage"
             :fields="fields"
           >
-          <template #cell(number)="row">
-              {{ row.index + 1 }}
+           <template #cell(number)="row">
+              {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
+            
             <template #cell(status)="row">
               <div v-if="row.item.status == 'success'">
               <div class="success">{{row.item.status}}</div>
@@ -57,7 +58,7 @@ export default {
   data() {
     return {
       facebook_jobs: {},
-      perPage: 10,
+      perPage: 20,
       currentPage: 1,
        fields: [
         { key: "number", label: "No." },

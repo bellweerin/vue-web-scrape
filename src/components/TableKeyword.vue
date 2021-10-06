@@ -17,8 +17,8 @@
           <!-- <template #cell(number)="col" style="background-color: grey">
               
             </template> -->
-            <template #cell(number)="row">
-              {{ row.index + 1 }}
+             <template #cell(number)="row">
+              {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
           </b-table>
           <b-pagination
@@ -41,7 +41,7 @@ export default {
   data() {
     return {
       Keywords: {},
-      perPage: 10,
+      perPage: 20,
       currentPage: 3,
       fields: [
         {

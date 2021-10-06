@@ -52,7 +52,7 @@ export default {
   methods: {
     fetchData() {
       axios
-        .get("http://localhost:3000/job/facebook")
+        .get("https://aibedo.kisra.co.th/job/facebook")
         .then((response) => {
           this.facebook_jobs = response.data;
           this.facebook_jobs = this.facebook_jobs.map((r) => {

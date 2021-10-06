@@ -57,9 +57,8 @@ export default {
       }
       else if(percent > 75 && percent < 100){
         progress.className = "progress-bar green-99";
-        // progress.style.animation = "animate-stripes 3s linear infinite"
       }
-      else{
+      else if(percent == 100){
         progress.className = "progress-bar blue-100"
       }
 
@@ -94,7 +93,7 @@ export default {
   .green-99{
     background-color: #A7FF7D;
   }
-  .blue{
+  .blue-100{
     background-color: #7DFFB1;
   }
   .amount-jobs{

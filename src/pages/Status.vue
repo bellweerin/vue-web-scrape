@@ -30,7 +30,8 @@
                   }"
                   type="button"
                   class="btn btn-info"
-                  id="detail"
+                  id="detail" 
+                  target="_blank"
                   >Detail</router-link
                 >
             </template>
@@ -126,7 +127,7 @@ export default {
       // chartData: {},
       click: 0,
       Keywords: [],
-      perPage: 5,
+      perPage: 20,
       currentPage: 3,
       fields: [
         { key: "number", label: "No." },

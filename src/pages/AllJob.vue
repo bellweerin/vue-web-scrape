@@ -55,7 +55,7 @@ export default {
     run() {
       // this.loading();
       axios
-        .post("https://aibedo.kisra.co.th/run")
+        .post("https://aibedo.kisra.co.th/job/run")
         .then((response) => {
           console.log(response);
           location.reload();

@@ -11,8 +11,9 @@
             :per-page="perPage"
             :current-page="currentPage"
             :fields="fields"
-          ><template #cell(number)="row">
-              {{ row.index + 1 }}
+          >
+          <template #cell(number)="row">
+              {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
             
             </b-table>
@@ -60,7 +61,7 @@ export default {
   data() {
     return {
       FacebookPages: {},
-      perPage: 10,
+      perPage: 20,
       currentPage: 3,
       fields: [
         {

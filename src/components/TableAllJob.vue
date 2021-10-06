@@ -14,21 +14,26 @@
             :current-page="currentPage"
             :fields="fields"
           >
-            <template #cell(number)="row">
-              {{ row.index + 1 }}
+             <template #cell(number)="row">
+              {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
-             <template #cell(status)="row">
+            
+            <template #cell(worker)="row">
+              <div v-if="row.item.worker == null">-</div>
+              <div v-else>{{row.item.worker}}</div>
+            </template>
+            <template #cell(status)="row">
               <div v-if="row.item.status == 'success'">
-              <div class="success">{{row.item.status}}</div>
+                <div class="success">{{ row.item.status }}</div>
               </div>
               <div v-if="row.item.status == 'waiting'">
-              <div class="waiting">{{row.item.status}}</div>
+                <div class="waiting">{{ row.item.status }}</div>
               </div>
               <div v-if="row.item.status == 'failed'">
-              <div class="failed">{{row.item.status}}</div>
+                <div class="failed">{{ row.item.status }}</div>
               </div>
               <div v-if="row.item.status == 'in progress'">
-              <div class="in-progress">{{row.item.status}}</div>
+                <div class="in-progress">{{ row.item.status }}</div>
               </div>
             </template>
           </b-table>
@@ -54,7 +59,7 @@ export default {
   data() {
     return {
       Jobs: [],
-      perPage: 10,
+      perPage: 50,
       currentPage: 1,
       fields: [
         { key: "number", label: "No." },
@@ -65,6 +70,7 @@ export default {
         { key: "keyword", label: "Keyword" },
         { key: "service", label: "Service" },
         { key: "page", label: "Page" },
+        { key: "worker", label: "Worker" },
         { key: "created_time", label: "Created time" },
         { key: "start_time", label: "Start time" },
         { key: "end_time", label: "End time" },
@@ -181,8 +187,8 @@ export default {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.success{
-  background-color: #7DFFB1;
+.success {
+  background-color: #7dffb1;
   color: black;
   text-align: center;
   width: 90px;
@@ -193,8 +199,8 @@ export default {
   height: 46px;
   padding: 10px;
 }
-.waiting{
-  background-color: #FFEA7D;
+.waiting {
+  background-color: #ffea7d;
   color: black;
   text-align: center;
   width: 90px;
@@ -205,8 +211,8 @@ export default {
   height: 46px;
   padding: 10px;
 }
-.failed{
-  background-color: #FC4F4F;
+.failed {
+  background-color: #fc4f4f;
   color: white;
   text-align: center;
   width: 90px;
@@ -217,8 +223,8 @@ export default {
   height: 46px;
   padding: 10px;
 }
-.in-progress{
-  background-color: #7DFFE8;
+.in-progress {
+  background-color: #7dffe8;
   color: black;
   text-align: center;
   width: 90px;

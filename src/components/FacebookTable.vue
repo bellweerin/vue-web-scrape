@@ -12,8 +12,9 @@
       small
     >
       <template #cell(number)="row">
-        {{ row.index + 1 }}
-      </template>
+              {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
+            </template>
+            
       <template #cell(post_text)="row">
         <a class="a-link" :href="row.item.post_url">{{ row.item.post_text }}</a>
       </template>
@@ -60,7 +61,7 @@ export default {
   data() {
     return {
       Data: this.Data,
-      perPage: 10,
+      perPage: 50,
       currentPage: 1,
       fields: [
         {
