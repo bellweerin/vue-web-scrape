@@ -31,7 +31,6 @@
                   type="button"
                   class="btn btn-info"
                   id="detail" 
-                  target="_blank"
                   >Detail</router-link
                 >
             </template>

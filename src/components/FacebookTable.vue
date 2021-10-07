@@ -16,7 +16,7 @@
             </template>
             
       <template #cell(post_text)="row">
-        <a class="a-link" :href="row.item.post_url">{{ row.item.post_text }}</a>
+        <a target="_blank" class="a-link" :href="row.item.post_url">{{ row.item.post_text }}</a>
       </template>
       <!-- <template #cell(image_l)="row">
         {{ row.item.image_l }}

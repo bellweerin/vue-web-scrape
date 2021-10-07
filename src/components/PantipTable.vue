@@ -15,7 +15,7 @@
               {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
       <template #cell(title)="row">
-        <a class="a-link" :href="row.item.post_link">{{ row.item.title }}</a>
+        <a  target="_blank" class="a-link" :href="row.item.post_link">{{ row.item.title }}</a>
       </template>
       <template #cell(img_src)="row">
         <div class="container" v-if="row.item.img_src != 'no img'">

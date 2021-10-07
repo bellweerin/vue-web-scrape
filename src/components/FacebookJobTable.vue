@@ -17,6 +17,10 @@
            <template #cell(number)="row">
               {{ (row.index + ((currentPage-1) * perPage)) + 1 }}
             </template>
+             <template #cell(worker)="row">
+              <div v-if="row.item.worker == null">-</div>
+              <div v-else>{{row.item.worker}}</div>
+            </template>
             
             <template #cell(status)="row">
               <div v-if="row.item.status == 'success'">
@@ -68,6 +72,7 @@ export default {
         },
         { key: "page_name", label: "Page Name" },
         { key: "amount_post", label: "Amount post" },
+        { key: "worker", label: "Worker" },
         { key: "created_time", label: "Created time" },
         { key: "start_time", label: "Start time" },
         { key: "end_time", label: "End time" },
@@ -199,7 +204,7 @@ export default {
   background-color: #7DFFE8;
   color: black;
   text-align: center;
-  width: 90px;
+  width: 100px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 30px;

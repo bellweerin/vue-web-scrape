@@ -227,7 +227,7 @@ export default {
   background-color: #7dffe8;
   color: black;
   text-align: center;
-  width: 90px;
+  width: 100px;
   margin-right: auto;
   margin-left: auto;
   border-radius: 30px;

@@ -24,18 +24,18 @@
         </div>
       </div>
 
-      <!-- <button id="load" class="btn btn-warning" type="button" disabled>
+      <button id="load" class="btn btn-warning" type="button" disabled>
         <span
           class="spinner-border spinner-border-sm"
           role="status"
           aria-hidden="true"
         ></span>
         Loading...
-      </button> -->
+      </button>
 
-      <div id="load" class="spinner-border text-warning" role="status">
+      <!-- <div id="load" class="spinner-border text-warning" role="status">
         <span class="sr-only"></span>
-      </div>
+      </div> -->
 
       <table-all-job></table-all-job>
     </div>
@@ -65,12 +65,11 @@ export default {
         });
     },
     create() {
-      // this.loading();
-      axios
-        .post("https://aibedo.kisra.co.th/job/create")
+      this.loading();
+      axios.post("https://aibedo.kisra.co.th/job/create")
         .then((response) => {
           console.log(response);
-          // this.success();
+          this.success();
           location.reload();
         })
         .catch((error) => {
@@ -117,6 +116,9 @@ export default {
       let load = document.getElementById("load");
       load.style.display = "none";
     },
+    sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
   },
 };
 </script>
@@ -145,9 +147,6 @@ export default {
 }
 #amount {
   width: 5rem;
-}
-#load {
-  display: none;
 }
 #create,#create:active{
   color: white;
@@ -182,10 +181,13 @@ export default {
   margin-top:auto;
 }
 #load{
+  display: none;
+  background-color: #F14AFF;
+  color: #ffffff;
+  border-color: #F14AFF;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 50px;
 }
 
 </style>

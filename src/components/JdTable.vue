@@ -16,7 +16,7 @@
             </template>
             
        <template #cell(name)="row">
-        <a class="a-link" :href="row.item.url">{{ row.item.name }}</a>
+        <a target="_blank" class="a-link" :href="row.item.url">{{ row.item.name }}</a>
       </template>
      <template #cell(img_src)="row">
         <div class="container" v-if="row.item.img_src != 'no img'">

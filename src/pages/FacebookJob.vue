@@ -27,6 +27,14 @@
           </button> -->
         </div>
       </div>
+       <button id="load" class="btn btn-warning" type="button" disabled>
+        <span
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Loading...
+      </button>
       <!-- <p>{{facebook_jobs}}</p> -->
       <FacebookJobTable></FacebookJobTable>
     </div>
@@ -81,10 +89,12 @@ export default {
         });
     },
     create() {
+      this.loading()
       axios
         .post("https://aibedo.kisra.co.th/job/create/facebook")
         .then((response) => {
           console.log(response);
+          this.success()
           location.reload();
         })
         .catch((error) => {
@@ -104,6 +114,14 @@ export default {
 
     },
     changeState() {},
+    loading() {
+      let load = document.getElementById("load");
+      load.style.display = "block";
+    },
+    success() {
+      let load = document.getElementById("load");
+      load.style.display = "none";
+    },
   },
 };
 </script>
@@ -154,6 +172,15 @@ export default {
   margin-right: 30px;
   margin-bottom: auto;
   margin-top:auto;
+}
+#load{
+  display: none;
+  background-color: #F14AFF;
+  color: #ffffff;
+  border-color: #F14AFF;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
 }
 
 </style>
